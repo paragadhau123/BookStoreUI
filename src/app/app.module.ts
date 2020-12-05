@@ -14,11 +14,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
+import { MatButtonModule } from '@angular/material/button';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
