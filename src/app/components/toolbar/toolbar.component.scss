@@ -1,0 +1,46 @@
+.toolbar{
+    background: #A03037;
+    padding: 0%;
+}
+.title{
+    color: #ffff;
+    margin-left: 1%;
+}
+.logo{
+    margin-left: 14%;
+}
+
+.cart{
+    color: #ffff;
+    font-size: small;
+}
+.cart-logo{
+    margin-top: 10px;
+}
+
+.cart-div{
+    margin-left: 4%;
+}
+
+.input-card {
+    width: 47vw;
+    height: 3vh;
+    margin-left: 4vw;
+    transition: none !important;
+    box-shadow: none !important;
+    background-color: white;
+}
+.input-feild {
+    width: 44.6vw;
+    margin-top: -40px;
+    padding-left: 35px;
+}
+
+.input-feild input {
+    width: 80%;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: lighter;
+    background-color: white;
+}

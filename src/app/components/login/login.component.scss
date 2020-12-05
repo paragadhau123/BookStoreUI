@@ -1,0 +1,113 @@
+.example-card {
+    width: 450px;
+    height: 350px;
+  }
+
+  .card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+  }
+  
+  .bookStore{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 27px;
+    padding: initial;
+  }
+  .heading {
+    color: #A03037;
+  }
+  .p1{
+    display: flex;
+  	font-weight: 400;
+    justify-content: flex-start;
+    line-height: 80%;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 15px;
+}
+.title2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 15px;
+    margin-top: 10px;
+}
+ .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+    width: 390px;
+  }
+  .email-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+.email{
+  display: block;
+    width: 350px;
+}
+.password-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: -67px;
+}
+.password{
+    display: block;
+    width: 350px;
+    margin-left: 70px;
+}
+a{
+    display: block;
+    position: relative;
+    font-family: roboto;
+    text-decoration: none;
+}
+.line4{
+    font-size: 15px;
+    margin: 20px 10px; 
+    color: #A03037;
+    display: inline-block;
+    font-family: arial rounded mt;
+  }
+  .button-row{
+      margin-left: 40px;
+  }
+  .button{
+    margin-left: 155px;
+    background-color: #A03037;
+    color: #ffff
+   }
+   .logo{
+    margin-top: 10px;
+}
+.mat-error{
+    font-size: 15px;
+}
+::ng-deep .snackbar {
+  background: rgb(7, 182, 7);
+}
+
+@media only screen and (max-width: 600px) {
+  .example-card {
+    min-width: 100%;
+    display: block;
+    border: none;
+  }
+
+  .card{
+    display: block;
+    border: none;
+    height: 100%;
+  }
+
+}

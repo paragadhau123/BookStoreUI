@@ -1,0 +1,32 @@
+<div class="card">
+    <mat-card class="example-card">
+        <div class="bookStore" >
+            <span class="heading">Book Store</span>
+          </div>
+          <div class="title">
+            <p class="p1">Log In</p>
+          </div>
+          <div class="title2">
+              <p class="p2">Use your Book Store Account</p>
+          </div>
+          <div class="email-container">
+            <mat-form-field appearance="outline" class="email">
+              <mat-label>Email Id</mat-label>
+              <input matInput [formControl]="email">
+              <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="password-row">
+            <mat-form-field appearance="outline" class="password">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            </mat-form-field>            
+        </div>
+        <div class="button-row">
+            <a class="line4">Create account</a>
+            <button mat-raised-button class="button" (click)="login()">Log In</button>
+        </div>
+    </mat-card>
+</div>
