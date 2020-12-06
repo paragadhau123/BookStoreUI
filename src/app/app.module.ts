@@ -17,13 +17,17 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { AdmindashboardComponent } from './components/admindashboard/admindashboard.component';
+import { RegisterComponent } from './components/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ToolbarComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    AdmindashboardComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

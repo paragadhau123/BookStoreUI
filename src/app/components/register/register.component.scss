@@ -1,0 +1,154 @@
+.example-card {
+    width: 460px;
+    padding: 20px;
+  }
+
+  .card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+  }
+
+  .book {
+    font-size: 27px;
+    padding: initial;
+  }
+  .heading {
+    color: rgb(134, 39, 1);
+  }
+  .p1{
+    display: flex;
+  	font-weight: 400;
+    justify-content: flex-start;
+    line-height: 80%;
+}
+
+.title{
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.fname{ 
+    width: 225px;
+}
+
+.lname{
+width: 225px;
+margin-left: 10px; 
+}
+  .email-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+    width: 390px;
+  }
+.email{
+  display: block;
+    /* width: 416px; */
+}
+.gender{
+    width: 225px;
+}
+.phone{
+    width: 225px;
+    margin-left: 10px;
+}
+.city{
+    width: 225px;
+}
+.state{
+    width: 225px;
+    margin-left: 10px;
+}
+.pincode{
+    width: 225px;
+}
+.button{
+   margin-left: 270px;
+   background-color: rgb(134, 39, 1);
+   color: #ffff
+}
+.password{
+    width: 225px;
+    margin-left: 10px;
+}
+img{
+    width: 100px;
+}
+a{
+    display: block;
+    position: relative;
+    font-family: roboto;
+    text-decoration: none;
+}
+.line1{
+    font-size: 12px;
+    margin: 1px 0 1px 15px;
+    width: 310px;
+}
+.line3{
+  font-size: 12px;
+  margin: -1px 0 0 15px;
+  width: 310px;
+
+}
+.line4{
+  font-size: 15px;
+  margin-top: 15px;
+  margin: 20px 8px; 
+  color:  rgb(134, 39, 1);
+  display: inline-block;
+  font-family: arial rounded mt;
+}
+.mat-error{
+  font-size: 13px;
+}
+
+@media only screen and (max-width: 600px) {
+  .example-card {
+    min-width: 100%;
+    display: block;
+    border: none;
+  }
+  .card{
+    display: block;
+    border: none;
+    height: 100%;
+  }
+  .fname{
+    width:100%;
+    margin-left: 0px;
+  }
+  .lname{
+    width:100%;
+    margin-left: 0px;
+  }
+  .city{
+    width:100%;
+    margin-left: 0px;
+  }
+  .state{
+    width:100%;
+    margin-left: 0px;
+  }
+  .pincode{
+    width:100%;
+    margin-left: 0px;
+  }
+  .phone{
+    width:100%;
+    margin-left: 0px;
+  }
+  .email{
+    width:100%;
+    margin-left: 0px;
+  }
+  .cpassword{
+    width:100%;
+    margin-left: 0px;
+  }
+  .password{
+    width:100%;
+    margin-left: 0px;
+  }
+}
