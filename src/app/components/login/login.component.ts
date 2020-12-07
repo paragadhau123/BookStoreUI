@@ -3,11 +3,13 @@ import { FormControl, Validators } from '@angular/forms';
 import { UserserviceService } from "../../services/userservice/userservice.service";
 import { Router } from '@angular/router';
 import { UtilityService } from "../../services/utilityservice/utility.service";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
   constructor(private user: UserserviceService, public route: Router, private utility: UtilityService) { }
@@ -50,6 +52,7 @@ export class LoginComponent implements OnInit {
       "UserEmailId": this.email.value,
       "UserPassword": this.password.value
     }
+
     this.user.userLogin(data).subscribe(response => {
       console.log(response)
       this.utility.displayMessage("User Login Successful");

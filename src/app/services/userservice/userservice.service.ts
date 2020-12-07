@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { environment } from "../../../environments/environment";
 import { HttpHeaders } from '@angular/common/http';
-import {HttpserviceService  } from "../httpservice/httpservice.service";
+import { HttpserviceService } from "../httpservice/httpservice.service";
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
   baseUrl = environment.baseUrl;
-  constructor(private http:HttpserviceService ){
-    
-  } 
+  constructor(private http: HttpserviceService) {
+
+  }
   userLogin(data) {
     return this.http.post(`${this.baseUrl}User/Login`, data);
   }
@@ -19,4 +19,9 @@ export class UserserviceService {
   register(data) {
     return this.http.post(`${this.baseUrl}User/Register`, data);
   }
+
+  forgotPassword(data) {
+    return this.http.post(`${this.baseUrl}User/ForgetPassword`, data);
+  }
+
 }
