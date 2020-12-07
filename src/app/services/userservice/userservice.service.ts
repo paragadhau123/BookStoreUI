@@ -10,4 +10,10 @@ export class UserserviceService {
   constructor(private http:HttpserviceService ){
     
   } 
+  userLogin(data) {
+    return this.http.post(`${this.baseUrl}User/Login`, data);
+  }
+  adminLogin(data) {
+    return this.http.post(`${this.baseUrl}Admin/Login`, data);
+  }
 }

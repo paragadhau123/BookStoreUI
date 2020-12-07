@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { UserserviceService } from "../../services/userservice/userservice.service";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,7 +9,7 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private user: UserserviceService, public route: Router) { }
   hide = true;
   errors;
   ngOnInit(): void {
@@ -15,44 +17,56 @@ export class LoginComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(6)]);
   getEmailErrorMessage() {
-    
+
     if (this.email.hasError('required')) {
       return 'Please enter a email id';
     }
     if (this.email.hasError('email')) {
-    return 'Invalid email';
+      return 'Invalid email';
     }
   }
 
-  getPasswordErrorMessage(){
+  getPasswordErrorMessage() {
 
     if (this.password.hasError('required')) {
       return 'Please enter a password';
     }
-   return this.password.invalid ? 'Password length must be greater than 6' : '';
+    return this.password.invalid ? 'Password length must be greater than 6' : '';
   }
 
   login() {
-    if(this.password.valid && this.email.valid){
-     this.onLogin();
-     
+    if (this.password.valid && this.email.valid) {
+      if(this.email.value=="admin@gmail.com"){
+       this.adminLogin();
+      }
+      else{
+        this.userLogin();
+      }
     }
-    else{
+    else {
       this.email.markAsTouched();
       this.password.markAsTouched();
     }
   }
 
-  onLogin(){
-    let data={
-      "emailId": this.email.value,
-      "password":this.password.value
-     }   
-     if(['data']['emailId']=="admin@gmail.com"){
-
-     }
-     else{
-       
-     }
+  userLogin() {
+    let data = {
+      "UserEmailId": this.email.value,
+      "UserPassword": this.password.value
+    }
+      this.user.userLogin(data).subscribe(response => {
+        console.log(response)        
+      })
+    }
+    adminLogin() {
+      let data = {
+        "AdminEmailId": this.email.value,
+        "AdminPassword": this.password.value
+      }
+        this.user.adminLogin(data).subscribe(response => {
+          console.log(response)        
+          this.route.navigate(['admin'])
+        })
+      }
   }
-}
+  
