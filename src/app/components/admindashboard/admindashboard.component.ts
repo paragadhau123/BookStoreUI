@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class AdmindashboardComponent implements OnInit {
 
   constructor() { }
-
+  Admin="Admin";
   ngOnInit(): void {
   }
 

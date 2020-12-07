@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   constructor() { }
-
+  @Input() childMessage: string;
+  dispalyimg=null
   ngOnInit(): void {
-   
+    if (this.childMessage == "Admin"){
+      this.dispalyimg=false;
+    
+    }
+    else{
+      this.dispalyimg=true;
+    }
   }
 
 }
