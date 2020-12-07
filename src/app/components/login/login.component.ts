@@ -37,12 +37,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.password.valid && this.email.valid) {
-      if(this.email.value=="admin@gmail.com"){
-       this.adminLogin();
-      }
-      else{
-        this.userLogin();
-      }
+      this.Login();
     }
     else {
       this.email.markAsTouched();
@@ -50,26 +45,27 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  userLogin() {
+  Login() {
     let data = {
       "UserEmailId": this.email.value,
       "UserPassword": this.password.value
     }
-      this.user.userLogin(data).subscribe(response => {
-        console.log(response)   
-        this.utility.displayMessage("User Login Successful");     
-      })
-    }
-    adminLogin() {
-      let data = {
-        "AdminEmailId": this.email.value,
-        "AdminPassword": this.password.value
+    this.user.userLogin(data).subscribe(response => {
+      console.log(response)
+      this.utility.displayMessage("User Login Successful");
+      localStorage.setItem('firstName', response['data']['firstName']);
+      localStorage.setItem('lastName', response['data']['lastName']);
+      localStorage.setItem('token', response['data']['token']);
+      localStorage.setItem('id', response['data']['id']);
+      localStorage.setItem('role', response['data']['role']);
+      localStorage.setItem('email', response['data']['emailId']);
+      if (localStorage.getItem('role') == "User") {
+        this.route.navigateByUrl('/userDashboard')
       }
-        this.user.adminLogin(data).subscribe(response => {
-          console.log(response)     
-          this.utility.displayMessage("Admin Login Successful");       
-         // this.route.navigate(['admin'])
-        })
+      else {
+        this.route.navigateByUrl('/adminDashBoard')
       }
+    })
   }
-  
+}
+

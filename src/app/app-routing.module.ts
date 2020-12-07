@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:"toolbar",component:ToolbarComponent},
   {path:"forgotPassword",component:ForgotpasswordComponent},
   {path:"resetPassword",component:ResetpasswordComponent},
-  {path:"admin",component:AdmindashboardComponent},
+  {path:"adminDashBoard",component:AdmindashboardComponent},
   {path:"register",component:RegisterComponent}
 ];
 

@@ -8,8 +8,10 @@ import { UtilityService } from "../../services/utilityservice/utility.service";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  
   hide = true;
   errors;
+
   constructor(private user:UserserviceService, private utility: UtilityService) { }
   firstName = new FormControl('', [Validators.required, Validators.minLength(3)]);
   lastName = new FormControl('', [Validators.required, Validators.minLength(3)]);
@@ -117,8 +119,7 @@ onRegister(){
     "PinCode":this.pincode.value
    }
 this.user.register(data).subscribe(response => {
-  this.utility.displayMessage("Admin Login Successful");       
-}
-  
+  this.utility.displayMessage("Register Succesfully");       
+}  
 )}
 }

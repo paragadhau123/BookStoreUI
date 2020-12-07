@@ -23,6 +23,7 @@ export class ForgotpasswordComponent implements OnInit {
   }
   submit(){
     if( this.email.valid){
+      
     }
   }
 }
