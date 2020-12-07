@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { UserserviceService } from "../../services/userservice/userservice.service";
 import { Router } from '@angular/router';
+import { UtilityService } from "../../services/utilityservice/utility.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private user: UserserviceService, public route: Router) { }
+  constructor(private user: UserserviceService, public route: Router, private utility: UtilityService) { }
   hide = true;
   errors;
   ngOnInit(): void {
@@ -55,7 +56,8 @@ export class LoginComponent implements OnInit {
       "UserPassword": this.password.value
     }
       this.user.userLogin(data).subscribe(response => {
-        console.log(response)        
+        console.log(response)   
+        this.utility.displayMessage("User Login Successful");     
       })
     }
     adminLogin() {
@@ -64,7 +66,8 @@ export class LoginComponent implements OnInit {
         "AdminPassword": this.password.value
       }
         this.user.adminLogin(data).subscribe(response => {
-          console.log(response)        
+          console.log(response)     
+          this.utility.displayMessage("Admin Login Successful");       
           this.route.navigate(['admin'])
         })
       }
