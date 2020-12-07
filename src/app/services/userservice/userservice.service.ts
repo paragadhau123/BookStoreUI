@@ -13,9 +13,11 @@ export class UserserviceService {
   userLogin(data) {
     return this.http.post(`${this.baseUrl}User/Login`, data);
   }
+
   adminLogin(data) {
     return this.http.post(`${this.baseUrl}Admin/Login`, data);
   }
+
   register(data) {
     return this.http.post(`${this.baseUrl}User/Register`, data);
   }
@@ -24,4 +26,8 @@ export class UserserviceService {
     return this.http.post(`${this.baseUrl}User/ForgetPassword`, data);
   }
 
+  resetPassword(data, token) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token }) }
+    return this.http.post(`${this.baseUrl}User/ResetPassword`, data, true, options)
+  }
 }
