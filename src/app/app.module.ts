@@ -19,6 +19,11 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { AdmindashboardComponent } from './components/admindashboard/admindashboard.component';
 import { RegisterComponent } from './components/register/register.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +47,11 @@ import { RegisterComponent } from './components/register/register.component';
     MatInputModule,
     MatToolbarModule,
     MatBadgeModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
