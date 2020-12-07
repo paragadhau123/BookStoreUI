@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { UserserviceService } from "../../services/userservice/userservice.service";
+import { UtilityService } from "../../services/utilityservice/utility.service";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor() { }
+  hide = true;
+  errors;
+  constructor(private user:UserserviceService, private utility: UtilityService) { }
   firstName = new FormControl('', [Validators.required, Validators.minLength(3)]);
   lastName = new FormControl('', [Validators.required, Validators.minLength(3)]);
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -22,7 +25,6 @@ export class RegisterComponent implements OnInit {
   }
 
   getFirstNameErrorMessage(){
-    console.log("Hello");
     if (this.firstName.hasError('required')) {
       return 'Please enter a first name';
     }
@@ -101,22 +103,22 @@ export class RegisterComponent implements OnInit {
       this.password.markAsTouched();
     }
   }
-  hide = true;
-  errors;
+  
 onRegister(){
   let data={
-    "firstName": this.firstName.value,
-    "lastName": this.lastName.value, 
-    "gender": this.gender.value,
-    "role":"User",
-    "emailId": this.email.value,
-    "city":this.city.value,
-    "state":this.state.value,
-    "pincode":this.pincode.value,
-    "phoneNumber":this.phone.value,
-    "password":this.password.value
+    "FirstName": this.firstName.value,
+    "LastName": this.lastName.value, 
+    "Gender": this.gender.value,
+    "EmailId": this.email.value,
+    "PhoneNumber":this.phone.value,
+    "Password":this.password.value,
+    "City":this.city.value,
+    "State":this.state.value,
+    "PinCode":this.pincode.value
    }
-
-  // this.userService.register(data).subscribe((data)=>{
-  }
+this.user.register(data).subscribe(response => {
+  this.utility.displayMessage("Admin Login Successful");       
+}
+  
+)}
 }

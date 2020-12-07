@@ -16,4 +16,7 @@ export class UserserviceService {
   adminLogin(data) {
     return this.http.post(`${this.baseUrl}Admin/Login`, data);
   }
+  register(data) {
+    return this.http.post(`${this.baseUrl}User/Register`, data);
+  }
 }

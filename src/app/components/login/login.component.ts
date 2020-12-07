@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
         this.user.adminLogin(data).subscribe(response => {
           console.log(response)     
           this.utility.displayMessage("Admin Login Successful");       
-          this.route.navigate(['admin'])
+         // this.route.navigate(['admin'])
         })
       }
   }
