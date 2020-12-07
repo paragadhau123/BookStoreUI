@@ -48,5 +48,11 @@ export class LoginComponent implements OnInit {
       "emailId": this.email.value,
       "password":this.password.value
      }   
+     if(['data']['emailId']=="admin@gmail.com"){
+
+     }
+     else{
+       
+     }
   }
 }
