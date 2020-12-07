@@ -2,8 +2,8 @@
     <mat-toolbar class="toolbar">
     <img class="logo" src="../../../assets/education.svg">
     <span class="title">Book Store</span>
-    <mat-card class="input-card">
-        <mat-icon>search</mat-icon>
+    <mat-card *ngIf="dispalySearchBar" class="input-card">
+        <mat-icon class="icon">search</mat-icon>
         <div class="input-feild">
             <input type="search" placeholder="search..">
         </div>

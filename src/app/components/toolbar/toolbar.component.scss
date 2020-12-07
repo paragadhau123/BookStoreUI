@@ -24,7 +24,7 @@
 
 .input-card {
     width: 47vw;
-    height: 3vh;
+    height: 1.8vh;
     margin-left: 4vw;
     transition: none !important;
     box-shadow: none !important;
@@ -32,7 +32,7 @@
 }
 .input-feild {
     width: 44.6vw;
-    margin-top: -40px;
+    margin-top: -42px;
     padding-left: 35px;
 }
 
@@ -43,4 +43,7 @@
     font-size: 18px;
     font-weight: lighter;
     background-color: white;
+}
+.icon{
+    margin-bottom: 10px;
 }
