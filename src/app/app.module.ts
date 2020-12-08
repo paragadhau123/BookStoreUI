@@ -24,6 +24,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BooksComponent } from './components/books/books.component';
+import { AddBooksComponent } from './components/add-books/add-books.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ForgotpasswordComponent,
     ResetpasswordComponent,
     AdmindashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    BooksComponent,
+    AddBooksComponent, 
   ],
   imports: [
     BrowserModule,

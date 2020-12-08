@@ -15,4 +15,14 @@ export class AdminserviceService {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('Token') }) }
     return this.http.get(`${this.baseUrl}Book`, true, options)
   }
+
+  addNotes(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.post(`${this.baseUrl}Book/AddBook`, data, true, options);
+  }
+
+  deleteBook(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.delete(`${this.baseUrl}Book/${data}`, true, options)
+  }
 }

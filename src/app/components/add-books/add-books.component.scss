@@ -1,0 +1,48 @@
+.title{
+    background: #A03037;
+    display: flex;
+    justify-content: center;
+    height: 36px;
+    align-items: center;
+}
+.button{
+    background: #A03037;
+    color: #ffff;
+    margin-left: 43%;
+   
+}
+.head-text{
+    color: #ffff;
+}
+.author{
+    margin-left: 10px;
+}
+.description1{
+    width: 412px;
+}
+.quantity1{
+    margin-left: 10px;
+}
+.second-row{
+    margin-top: 10px;
+}
+.image{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+.book-image{
+    width: 40%;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+}
+.file{
+    margin-left: 123px;
+    margin-top: 5px;
+}
+.input-file{
+    outline: none;
+}
