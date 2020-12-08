@@ -1,7 +1,8 @@
-import { Component, OnInit,ViewChild  } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { AdminserviceService } from "../../services/adminservice/adminservice.service";
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatPaginator  } from '@angular/material/paginator';
+  
 export interface PeriodicElement {
   bookName: string;
   authorName: string;
@@ -20,24 +21,28 @@ export interface PeriodicElement {
 export class AdmindashboardComponent implements OnInit {
 
   displayedColumns: string[] = ['image', 'bookName', 'authorName', 'description', 'price', 'quantity', 'update', 'delete'];
-
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private admin: AdminserviceService) { }
-
+  MyDataSource: any;  
   Admin = "Admin";
   values = [];
   pageSlice = [];
+  
   ngOnInit(): void {
     this.getAllBooks();
   }
 
   getAllBooks() {
     this.admin.getBooks().subscribe((data) => {
-      this.values = data["data"];
-      this.pageSlice = this.values.slice(0, 5);
-      console.log( this.pageSlice);
-      console.log(this.values);
-
+       this.MyDataSource = new MatTableDataSource(data['data']);  
+      console.log(data['data']);
     });
   }
-  dataSource = new MatTableDataSource(this.pageSlice);  
+  
+  applyFilter(event: Event) {
+    console.log("filterData")
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.MyDataSource.filter = filterValue.trim().toLowerCase();
+    console.log(filterValue)
+  }
 }
