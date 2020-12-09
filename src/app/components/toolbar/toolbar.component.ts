@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input,ViewChild} from '@angular/core';
 import { UtilityService } from "../../services/utilityservice/utility.service";
 import { Router } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ToolbarComponent implements OnInit {
   constructor(private utility:UtilityService, public route: Router) { }
   @Input() childMessage: string;
+  
   dispalyimg=null
   dispalySearchBar=null
   token = localStorage.getItem('token')
@@ -33,4 +34,5 @@ export class ToolbarComponent implements OnInit {
     localStorage.removeItem('email')
     this.route.navigate(['login'])
   }
+ 
 }
