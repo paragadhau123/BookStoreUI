@@ -17,7 +17,31 @@
 .cart-logo{
     margin-top: 10px;
 }
-
+.img {
+    border-radius: 50%;
+}
+.inner{
+    height: 80px;
+    width: 80px;
+}
+::ng-deep{
+    .mat-menu-panel .userDetail{
+        min-height: 200px;
+        width: 200px;
+        padding: 8px;
+    }
+    }
+    .settings {
+        flex: 0.93  auto;
+    }
+    .name {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .email {
+        margin-bottom: 10px;
+    }
 .cart-div{
     margin-left: 4%;
 }

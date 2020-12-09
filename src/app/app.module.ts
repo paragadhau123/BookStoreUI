@@ -27,6 +27,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BooksComponent } from './components/books/books.component';
 import { AddBooksComponent } from './components/add-books/add-books.component';
 import { UpdatebookComponent } from './components/updatebook/updatebook.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { UpdatebookComponent } from './components/updatebook/updatebook.componen
     MatDialogModule,
     MatTableModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
