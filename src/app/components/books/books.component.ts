@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AdminserviceService } from "../../services/adminservice/adminservice.service";
 import { AddBooksComponent } from "../add-books/add-books.component";
-
+import { UpdatebookComponent } from "../updatebook/updatebook.component";
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-books',
@@ -18,23 +19,23 @@ export class BooksComponent implements OnInit {
   @Input() id: any;
   @Input() element: any;
 
-  constructor(private adminService: AdminserviceService, public dialog: MatDialogRef<AddBooksComponent>) { }
+  constructor(private adminService: AdminserviceService, public dialog: MatDialogRef<AddBooksComponent>, public dialog1: MatDialogRef<UpdatebookComponent>) { }
 
   ngOnInit(): void {
     if (this.childMessage == 'Add') {
       this.element = [];
     }
   }
+
   data1 = [];
 
   bookName = new FormControl('', [Validators.required, Validators.minLength(3)]);
   authorName = new FormControl('', [Validators.required, Validators.minLength(3)]);
   description = new FormControl('', [Validators.required, Validators.minLength(3)]);
-//  image = new FormControl('', [Validators.required]);
   price = new FormControl('', [Validators.required]);
   quantity = new FormControl('', [Validators.required]);
 
-  //url = "D:\\parag\\Angular\\BookStore-UI\\src\\assets\\images.jfif";
+  url = "D:\\parag\\Angular\\BookStore-UI\\src\\assets\\images.jfif";
 
   getBookNameErrorMessage() {
     if (this.bookName.hasError('required')) {
@@ -64,21 +65,20 @@ export class BooksComponent implements OnInit {
     return this.price.invalid ? 'Invalid price' : '';
   }
 
-  // getimageErrorMessage() {
-  //   if (this.price.hasError('required')) {
-  //     return 'Please enter a image path';
-  //   }
-  //   return this.price.invalid ? 'Invalid image' : '';
-  // }
-
   getQuantityErrorMessage() {
     if (this.quantity.hasError('required')) {
       return 'Please enter a quantity';
     }
     return this.quantity.invalid ? 'Invalid quantity' : '';
   }
+
   clickFunction() {
-    this.addBook();
+    if (this.childMessage == 'Add') {
+      this.addBook();
+    }
+    else {
+      this.updateBook();
+    }
   }
 
   addBook() {
@@ -87,11 +87,19 @@ export class BooksComponent implements OnInit {
       "AuthorName": this.authorName.value,
       "Description": this.description.value,
       "Price": this.price.value,
-      "Quantity": this.quantity,
-     // "Image": this.image.value
+      "Image": this.url
     }
     this.adminService.addNotes(data).subscribe((data) => {
     });
     this.dialog.close();
   }
+  updateBook() {
+    let Data = {
+
+    }
+    this.adminService.updateNotes(Data).subscribe((data) => {
+    });
+    this.dialog1.close();
+  }
 }
+

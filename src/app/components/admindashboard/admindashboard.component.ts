@@ -4,6 +4,7 @@ import { AdminserviceService } from "../../services/adminservice/adminservice.se
 import { MatPaginator  } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { AddBooksComponent } from "../add-books/add-books.component";
+import { UpdatebookComponent } from "../updatebook/updatebook.component";
 export interface PeriodicElement {
   bookName: string;
   authorName: string;
@@ -33,6 +34,10 @@ export class AdmindashboardComponent implements OnInit {
  
   openAddDialog(){
     let dialogRef = this.dialog.open(AddBooksComponent,{});
+  }
+
+  openUpdateDialog(element){
+    let dialogRef = this.dialog.open(UpdatebookComponent,{data:element});
   }
 
   deleteBook(element){

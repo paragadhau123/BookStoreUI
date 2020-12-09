@@ -12,7 +12,7 @@ export class AdminserviceService {
 
   }
   getBooks() {
-    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('Token') }) }
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
     return this.http.get(`${this.baseUrl}Book`, true, options)
   }
 
@@ -24,5 +24,10 @@ export class AdminserviceService {
   deleteBook(data) {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
     return this.http.delete(`${this.baseUrl}Book/${data}`, true, options)
+  }
+
+  updateNotes(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.put(`${this.baseUrl}Notes/${data.BookId}`, data, true, options)
   }
 }
