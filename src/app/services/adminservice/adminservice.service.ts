@@ -28,6 +28,6 @@ export class AdminserviceService {
 
   updateNotes(data) {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
-    return this.http.put(`${this.baseUrl}Notes/${data.BookId}`, data, true, options)
+    return this.http.put(`${this.baseUrl}Book/${data.BookId}`, data, true, options)
   }
 }

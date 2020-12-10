@@ -31,8 +31,12 @@ export class AdmindashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllBooks();
+    this.MyDataSource.paginator = this.paginator;
   }
-
+  
+  ngAfterViewInit() {
+    this.MyDataSource.paginator = this.paginator;
+  }
   openAddDialog() {
     let dialogRef = this.dialog.open(AddBooksComponent, {});
   }
@@ -54,16 +58,6 @@ export class AdmindashboardComponent implements OnInit {
     });
   }
   
-  OnPageChange(event: PageEvent) {
-    console.log(event);
-    const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
-    console.log(endIndex)
-    if (endIndex > this.MyDataSource.length) {
-      endIndex = this.MyDataSource.length;
-    }
-  }
-
   applyFilter(event: Event) {
     console.log("filterData")
     const filterValue = (event.target as HTMLInputElement).value;

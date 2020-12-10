@@ -1,5 +1,4 @@
 <app-toolbar [childMessage]="Admin"></app-toolbar>
-
 <div class="add" fxLayout="row" fxLayoutAlign="center center">
   <mat-form-field class="search">
     <input matInput (keyup)="applyFilter($event)"  placeholder="Search" #input>
@@ -67,11 +66,10 @@
      </tr>
    </table>
    </div>
-   <div class="paginator">
-    <mat-paginator [length]="MyDataSource.length"
-        [pageSize]="5"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        (page)="OnPageChange($event)">
-    </mat-paginator>
+   <div class="paginator">   
+<mat-paginator [length]="100"
+[pageSize]="1"
+[pageSizeOptions]="[1, 10, 25, 100]">
+</mat-paginator>
   </div>
  

@@ -19,7 +19,7 @@ export class BooksComponent implements OnInit {
   @Input() id: any;
   @Input() element: any;
 
-  constructor(private adminService: AdminserviceService, public dialog: MatDialogRef<AddBooksComponent>, public dialog1: MatDialogRef<UpdatebookComponent>) { }
+  constructor( @Inject(MAT_DIALOG_DATA) public data1: any,private adminService: AdminserviceService, public dialog: MatDialogRef<AddBooksComponent>, public dialog1: MatDialogRef<UpdatebookComponent>) { }
 
   ngOnInit(): void {
     if (this.childMessage == 'Add') {
@@ -27,7 +27,7 @@ export class BooksComponent implements OnInit {
     }
   }
 
-  data1 = [];
+  //data1 = [];
 
   bookName = new FormControl('', [Validators.required, Validators.minLength(3)]);
   authorName = new FormControl('', [Validators.required, Validators.minLength(3)]);
@@ -37,6 +37,19 @@ export class BooksComponent implements OnInit {
 
   url = "D:\\parag\\Angular\\BookStore-UI\\src\\assets\\images.jfif";
 
+  bookImage=null;
+  selectFile(event){
+    if (event.target.files) {
+      this.bookImage=event.target.files[0]
+      console.log(this.bookImage)
+      var reader = new FileReader()
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload = (event:any) => {
+      this.url = event.target.result;
+      }
+    }
+  }
+  
   getBookNameErrorMessage() {
     if (this.bookName.hasError('required')) {
       return 'Please enter a book name';
@@ -82,20 +95,27 @@ export class BooksComponent implements OnInit {
   }
 
   addBook() {
+
     let data = {
       "BookName": this.bookName.value,
       "AuthorName": this.authorName.value,
       "Description": this.description.value,
       "Price": this.price.value,
-      "Image": this.url
+      "Image":this.url
     }
+
     this.adminService.addNotes(data).subscribe((data) => {
     });
     this.dialog.close();
   }
   updateBook() {
     let Data = {
-
+      "BookName": (<HTMLInputElement>document.getElementById('name')).value,
+      "AuthorName": (<HTMLInputElement>document.getElementById('author')).value,
+      "Description": (<HTMLInputElement>document.getElementById('description')).value,
+      "Price": (<HTMLInputElement>document.getElementById('price')).value,
+      "Image":(<HTMLInputElement>document.getElementById('image')).value,
+      "BookId": this.data1.bookId,
     }
     this.adminService.updateNotes(Data).subscribe((data) => {
     });

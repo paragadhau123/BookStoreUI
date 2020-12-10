@@ -1,33 +1,37 @@
 <div>
     <div>
+      <div class="image">
+        <img class="book-image" [src]="url" alt="">
+    </div>
+    <div class= "file"> <input type="file" class="input-file"  id="image" (change)="selectFile($event)"></div>
         <div fxLayout="row" class="second-row">
             <mat-form-field appearance="outline" class="book">
                 <mat-label >Book Name</mat-label>
-                <input matInput [formControl]="bookName" [(ngModel)]="element.bookName">
+                <input matInput [formControl]="bookName" id="name" [(ngModel)]="element.bookName">
                 <mat-error *ngIf="bookName.invalid">{{getBookNameErrorMessage()}}</mat-error>
               </mat-form-field>
               <mat-form-field appearance="outline" class="author">
                 <mat-label>Author Name</mat-label>
-                <input matInput [formControl]="authorName" [(ngModel)]="element.authorName">
+                <input matInput [formControl]="authorName" id="author" [(ngModel)]="element.authorName">
                 <mat-error *ngIf="authorName.invalid">{{getAuthorNameErrorMessage()}}</mat-error>
               </mat-form-field>
         </div>
         <div fxLayout="row">
             <mat-form-field appearance="outline" class="description1">
               <mat-label>Description</mat-label>
-              <input matInput [formControl]="description" [(ngModel)]="element.description">
+              <input matInput [formControl]="description" id="description" [(ngModel)]="element.description">
               <mat-error *ngIf="description.invalid">{{getDescriptionErrorMessage()}}</mat-error>
             </mat-form-field>
         </div>
         <div fxLayout="row">
             <mat-form-field appearance="outline" class="price1">
                 <mat-label>Price</mat-label>
-                <input matInput [formControl]="price" [(ngModel)]="element.price">
+                <input matInput [formControl]="price" id="price" [(ngModel)]="element.price">
                 <mat-error *ngIf="price.invalid">{{getpriceErrorMessage()}}</mat-error>
               </mat-form-field>
               <mat-form-field appearance="outline" class="quantity1">
                 <mat-label>Quantity</mat-label>
-                <input matInput [formControl]="quantity" [(ngModel)]="element.quantity" >
+                <input matInput [formControl]="quantity" id="quantity" [(ngModel)]="element.quantity" >
                 <mat-error *ngIf="quantity.invalid">{{getQuantityErrorMessage()}}</mat-error>
               </mat-form-field>
         </div>
