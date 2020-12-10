@@ -35,19 +35,17 @@ export class BooksComponent implements OnInit {
   price = new FormControl('', [Validators.required]);
   quantity = new FormControl('', [Validators.required]);
 
-  url = "D:\\parag\\Angular\\BookStore-UI\\src\\assets\\images.jfif";
 
-  bookImage=null;
-  selectFile(event){
-    if (event.target.files) {
-      this.bookImage=event.target.files[0]
-      console.log(this.bookImage)
-      var reader = new FileReader()
-      reader.readAsDataURL(event.target.files[0])
-      reader.onload = (event:any) => {
-      this.url = event.target.result;
+ 
+  localUrl: any[];
+  showPreviewImage(event: any) {
+      if (event.target.files && event.target.files[0]) {
+          var reader = new FileReader();
+          reader.onload = (event: any) => {
+              this.localUrl = event.target.result;
+          }
+          reader.readAsDataURL(event.target.files[0]);
       }
-    }
   }
   
   getBookNameErrorMessage() {
@@ -101,7 +99,7 @@ export class BooksComponent implements OnInit {
       "AuthorName": this.authorName.value,
       "Description": this.description.value,
       "Price": this.price.value,
-      "Image":this.url
+      "Image":this.localUrl
     }
 
     this.adminService.addNotes(data).subscribe((data) => {
