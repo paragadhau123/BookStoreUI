@@ -5,6 +5,7 @@ import { AdminserviceService } from "../../services/adminservice/adminservice.se
 import { AddBooksComponent } from "../add-books/add-books.component";
 import { UpdatebookComponent } from "../updatebook/updatebook.component";
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DataserviceService } from "../../services/dataservice/dataservice.service";
 
 @Component({
   selector: 'app-books',
@@ -12,14 +13,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./books.component.scss']
 })
 
-
-
 export class BooksComponent implements OnInit {
   @Input() childMessage: string;
   @Input() id: any;
   @Input() element: any;
 
-  constructor( @Inject(MAT_DIALOG_DATA) public data1: any,private adminService: AdminserviceService, public dialog: MatDialogRef<AddBooksComponent>, public dialog1: MatDialogRef<UpdatebookComponent>) { }
+  constructor(private data:DataserviceService, @Inject(MAT_DIALOG_DATA) public data1: any,private adminService: AdminserviceService, public dialog: MatDialogRef<AddBooksComponent>, public dialog1: MatDialogRef<UpdatebookComponent>) { }
 
   ngOnInit(): void {
     if (this.childMessage == 'Add') {
@@ -27,15 +26,11 @@ export class BooksComponent implements OnInit {
     }
   }
 
-  //data1 = [];
-
   bookName = new FormControl('', [Validators.required, Validators.minLength(3)]);
   authorName = new FormControl('', [Validators.required, Validators.minLength(3)]);
   description = new FormControl('', [Validators.required, Validators.minLength(3)]);
   price = new FormControl('', [Validators.required]);
   quantity = new FormControl('', [Validators.required]);
-
-
  
   localUrl: any[];
   showPreviewImage(event: any) {
@@ -103,6 +98,7 @@ export class BooksComponent implements OnInit {
     }
 
     this.adminService.addNotes(data).subscribe((data) => {
+      this.data.changeMessage({});
     });
     this.dialog.close();
   }
@@ -112,10 +108,11 @@ export class BooksComponent implements OnInit {
       "AuthorName": (<HTMLInputElement>document.getElementById('author')).value,
       "Description": (<HTMLInputElement>document.getElementById('description')).value,
       "Price": (<HTMLInputElement>document.getElementById('price')).value,
-      "Image":(<HTMLInputElement>document.getElementById('image')).value,
+      "Image":this.localUrl,
       "BookId": this.data1.bookId,
     }
     this.adminService.updateNotes(Data).subscribe((data) => {
+      this.data.changeMessage({});
     });
     this.dialog1.close();
   }

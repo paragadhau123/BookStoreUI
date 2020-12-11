@@ -28,6 +28,8 @@ import { BooksComponent } from './components/books/books.component';
 import { AddBooksComponent } from './components/add-books/add-books.component';
 import { UpdatebookComponent } from './components/updatebook/updatebook.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { GetbooksComponent } from './components/getbooks/getbooks.component';
+import { DisplaybooksComponent } from './components/displaybooks/displaybooks.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MatMenuModule } from '@angular/material/menu';
     RegisterComponent,
     BooksComponent,
     AddBooksComponent,
-    UpdatebookComponent, 
+    UpdatebookComponent,
+    GetbooksComponent,
+    DisplaybooksComponent, 
   ],
   imports: [
     BrowserModule,

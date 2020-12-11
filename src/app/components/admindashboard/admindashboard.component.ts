@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddBooksComponent } from "../add-books/add-books.component";
 import { UpdatebookComponent } from "../updatebook/updatebook.component";
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import {DataserviceService  } from "../../services/dataservice/dataservice.service";
 
 export interface PeriodicElement {
   bookName: string;
@@ -23,20 +24,18 @@ export interface PeriodicElement {
 
 export class AdmindashboardComponent implements OnInit {
 
-  displayedColumns: string[] = ['image', 'bookName', 'authorName', 'description', 'price', 'quantity', 'update', 'delete'];
+  displayedColumns: string[] = ['index','image', 'bookName', 'authorName', 'description', 'price', 'quantity', 'update', 'delete'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private admin: AdminserviceService, public dialog: MatDialog) { }
+  constructor(private admin: AdminserviceService, public dialog: MatDialog,private data:DataserviceService) { }
   MyDataSource: any;
   Admin = "Admin";
 
   ngOnInit(): void {
     this.getAllBooks();
-    this.MyDataSource.paginator = this.paginator;
+   
+    this.data.currentMessage.subscribe(data => { this.getAllBooks() });
   }
   
-  ngAfterViewInit() {
-    this.MyDataSource.paginator = this.paginator;
-  }
   openAddDialog() {
     let dialogRef = this.dialog.open(AddBooksComponent, {});
   }
@@ -53,7 +52,9 @@ export class AdmindashboardComponent implements OnInit {
 
   getAllBooks() {
     this.admin.getBooks().subscribe((data) => {
+      
       this.MyDataSource = new MatTableDataSource(data['data']);
+      this.MyDataSource.paginator = this.paginator;
       console.log(data['data']);
     });
   }
