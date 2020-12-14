@@ -36,6 +36,14 @@ export class UserserviceService {
     return this.http.get(`${this.baseUrl}Book`, true, options)
   }
 
+  getasc() {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.get(`${this.baseUrl}Book/SortByPriceLowToHigh`, true, options)
+  }
+  getdsc() {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.get(`${this.baseUrl}Book/SortByPriceHighToLow`, true, options)
+  }
   getCartData() {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
     return this.http.get(`${this.baseUrl}Cart`, true, options)

@@ -93,8 +93,9 @@ export class BooksComponent implements OnInit {
       "BookName": this.bookName.value,
       "AuthorName": this.authorName.value,
       "Description": this.description.value,
-      "Price": this.price.value,
-      "Image":this.localUrl
+      "Price":parseInt(this.price.value),
+      "Image":this.localUrl,
+      "Quantity":parseInt(this.quantity.value)
     }
 
     this.adminService.addNotes(data).subscribe((data) => {

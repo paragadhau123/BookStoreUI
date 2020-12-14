@@ -23,4 +23,23 @@ export class GetbooksComponent implements OnInit {
       console.log(this.values)
     });
   }
+  getlowtohigh(){
+    console.log("asc");
+    this.userService.getasc().subscribe((data)=>{
+      this.values=[];
+      this.values=data["data"];
+      this.count=this.values.length
+      console.log(this.values)
+    });
+  }
+  gethightolow(){
+    console.log("asc");
+    this.userService.getdsc().subscribe((data)=>{
+      this.values=[];
+      this.values=data["data"];
+      this.count=this.values.length
+      console.log(this.values)
+    });
+  }
+
 }
