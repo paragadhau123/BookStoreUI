@@ -16,6 +16,5 @@ export class DisplaybooksComponent implements OnInit {
  
   toggle() {
     this.show = !this.show;
-
   }
 }

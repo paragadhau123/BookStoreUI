@@ -10,18 +10,32 @@
     margin-left: 1%;
 }
 .logo{
-    margin-left: 14%;
+    margin-left: 18%;
 }
 
 .cart{
     color: #ffff;
     font-size: small;
+   
 }
 .cart-logo{
     margin-top: 10px;
+   
 }
 .img {
     border-radius: 50%;
+}
+.searchCard{
+    width:35%;
+    background: #ffff;
+    margin-left: 3%;
+    border-radius: 5px;
+}
+.searchInput{
+    outline: none;
+    border: none;
+    font-size: inherit;
+    color: grey;
 }
 .inner{
     height: 80px;
@@ -35,7 +49,7 @@
     }
     }
     .settings {
-        flex: 0.93  auto;
+        flex: 0.25  auto;
     }
     .name {
         margin-top: 10px;

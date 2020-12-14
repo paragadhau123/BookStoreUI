@@ -35,4 +35,9 @@ export class UserserviceService {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
     return this.http.get(`${this.baseUrl}Book`, true, options)
   }
+
+  getCartData() {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.get(`${this.baseUrl}Cart`, true, options)
+  }
 }

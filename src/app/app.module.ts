@@ -27,10 +27,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BooksComponent } from './components/books/books.component';
 import { AddBooksComponent } from './components/add-books/add-books.component';
 import { UpdatebookComponent } from './components/updatebook/updatebook.component';
-import { MatMenuModule } from '@angular/material/menu';
+import {MatMenuModule} from '@angular/material/menu';
 import { GetbooksComponent } from './components/getbooks/getbooks.component';
 import { DisplaybooksComponent } from './components/displaybooks/displaybooks.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CartComponent } from './components/cart/cart.component';
+import {MatListModule} from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { OrdersuccessComponent } from './components/ordersuccess/ordersuccess.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,9 @@ import { FooterComponent } from './components/footer/footer.component';
     UpdatebookComponent,
     GetbooksComponent,
     DisplaybooksComponent,
-    FooterComponent, 
+    FooterComponent,
+    CartComponent,
+    OrdersuccessComponent, 
   ],
   imports: [
     BrowserModule,
@@ -67,7 +73,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MatTableModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatListModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,17 @@
 <mat-toolbar class="toolbar">
     <span class="title">Books</span><span class="count">({{count}} items)</span>
+    <!-- <div class="sort-choice">
+        <form>
+          <mat-form-field appearance="outline">
+            <mat-label>sort by relevance</mat-label>
+            <mat-select [(value)]="selected">
+              <mat-option value="Price:High To Low">Price:High To Low</mat-option>
+              <mat-option value="Price:Low To High">Price:Low To High</mat-option>
+              <mat-option value="Newest Arrival">Newest Arrival</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div> -->
 </mat-toolbar>
 <div class="books" fxLayout="row">
 <div class="book-card" *ngFor="let value of values">

@@ -2,12 +2,14 @@
     <mat-toolbar class="toolbar">
     <img class="logo" src="../../../assets/education.svg">
     <span class="title">Book Store</span>
-    <mat-card *ngIf="dispalySearchBar" class="input-card">
-        <mat-icon class="icon">search</mat-icon>
-        <div class="input-feild">
-            <input type="search" placeholder="search..">
+    <div Class="searchCard" fxLayout="row">
+        <div fxFlex="10">
+            <button mat-icon-button class="searchButton">
+            <mat-icon class="search" >search</mat-icon>
+            </button>
         </div>
-    </mat-card>   
+        <input Class="searchInput" type="input" placeholder="Search">
+    </div>
     <div *ngIf="dispalyimg" class="cart-div">
     <div> <mat-icon><img class="cart-logo" src="../../../assets/supermarket.svg"></mat-icon>
     <span class="cart">Cart</span></div>
