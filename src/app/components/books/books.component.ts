@@ -30,7 +30,7 @@ export class BooksComponent implements OnInit {
   authorName = new FormControl('', [Validators.required, Validators.minLength(3)]);
   description = new FormControl('', [Validators.required, Validators.minLength(3)]);
   price = new FormControl('', [Validators.required]);
-  quantity = new FormControl('', [Validators.required]);
+  quantity = new FormControl('', [Validators.required,]);
  
   localUrl: any[];
   showPreviewImage(event: any) {

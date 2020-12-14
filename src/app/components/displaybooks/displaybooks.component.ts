@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 
 @Component({
   selector: 'app-displaybooks',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./displaybooks.component.scss']
 })
 export class DisplaybooksComponent implements OnInit {
-
+  @Input() values=[];
+  @Input() count;
+  public show:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
+ 
+  toggle() {
+    this.show = !this.show;
 
+  }
 }

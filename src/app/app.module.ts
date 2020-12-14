@@ -30,6 +30,7 @@ import { UpdatebookComponent } from './components/updatebook/updatebook.componen
 import { MatMenuModule } from '@angular/material/menu';
 import { GetbooksComponent } from './components/getbooks/getbooks.component';
 import { DisplaybooksComponent } from './components/displaybooks/displaybooks.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DisplaybooksComponent } from './components/displaybooks/displaybooks.co
     AddBooksComponent,
     UpdatebookComponent,
     GetbooksComponent,
-    DisplaybooksComponent, 
+    DisplaybooksComponent,
+    FooterComponent, 
   ],
   imports: [
     BrowserModule,

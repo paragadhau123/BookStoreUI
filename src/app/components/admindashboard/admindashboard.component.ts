@@ -41,6 +41,7 @@ export class AdmindashboardComponent implements OnInit {
   }
 
   openUpdateDialog(element) {
+    console.log(element)
     let dialogRef = this.dialog.open(UpdatebookComponent, { data: element });
   }
 
