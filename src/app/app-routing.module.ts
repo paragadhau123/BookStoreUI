@@ -10,15 +10,16 @@ import { OrdersuccessComponent } from './components/ordersuccess/ordersuccess.co
 import { RegisterComponent } from './components/register/register.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { AuthguardGuard } from "../app/authguard/authguard.guard";
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"toolbar",component:ToolbarComponent},
   {path:"forgotPassword",component:ForgotpasswordComponent},
   {path:"resetPassword/:token",component:ResetpasswordComponent},
-  {path:"adminDashBoard",component:AdmindashboardComponent},
+  {path:"adminDashBoard",component:AdmindashboardComponent,canActivate: [AuthguardGuard]},
   {path:"register",component:RegisterComponent},
-  {path:"books",component:GetbooksComponent},
+  {path:"userDashboard",component:GetbooksComponent,canActivate: [AuthguardGuard]},
   {path:"footer",component:FooterComponent},
   {path:"cart",component:CartComponent},
   {path:"order",component:OrdersuccessComponent}
