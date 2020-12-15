@@ -88,7 +88,6 @@ export class BooksComponent implements OnInit {
   }
 
   addBook() {
-
     let data = {
       "BookName": this.bookName.value,
       "AuthorName": this.authorName.value,
@@ -103,6 +102,7 @@ export class BooksComponent implements OnInit {
     });
     this.dialog.close();
   }
+
   updateBook() {
     let Data = {
       "BookName": (<HTMLInputElement>document.getElementById('name')).value,

@@ -1,4 +1,4 @@
-<div class="books" fxLayout="row">
+<div class="books" fxLayout="row" *ngIf="displayBook">
 <div class="book-card" *ngFor="let value of values">
 <div class="book-photo">
     <div class="image">
@@ -10,8 +10,8 @@
     <div class="author-name">by {{value.authorName}}</div>
     <div class="price">Rs. {{value.price}}</div>
     <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!show">
-    <button mat-stroked-button color="primary" class="button1">ADD TO BAG</button>
-    <button mat-stroked-button color="primary" class="button2">WISHLIST</button>
+    <button mat-stroked-button color="primary" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
+    <button mat-stroked-button color="primary" (click)="addToWishList(value)" class="button2">WISHLIST</button>
     </div>
 </div>
 </div>

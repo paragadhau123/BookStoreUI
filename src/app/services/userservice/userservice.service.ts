@@ -48,4 +48,14 @@ export class UserserviceService {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
     return this.http.get(`${this.baseUrl}Cart`, true, options)
   }
+
+  addCart(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.post(`${this.baseUrl}Cart/${data.bookId}`, data, true, options);
+  }
+
+  addWishList(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.post(`${this.baseUrl}WishList/${data.bookId}`, data, true, options);
+  }
 }

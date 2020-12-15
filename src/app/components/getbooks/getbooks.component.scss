@@ -19,8 +19,12 @@ font-size: small;
 
 
 }
-
-
+::ng-deep{
+    .mat-menu-panel .pannel{
+      width: 135px;
+      
+   }
+}
 .arrowDown{
     margin-bottom: 2px;
     padding-left: 3px;
