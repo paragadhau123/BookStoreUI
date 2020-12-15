@@ -11,6 +11,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AuthguardGuard } from "../app/authguard/authguard.guard";
+import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -22,7 +24,23 @@ const routes: Routes = [
   {path:"userDashboard",component:GetbooksComponent,canActivate: [AuthguardGuard]},
   {path:"footer",component:FooterComponent},
   {path:"cart",component:CartComponent},
-  {path:"order",component:OrdersuccessComponent}
+  {path:"order",component:OrdersuccessComponent},
+  {path:"w",component:WishlistComponent},
+  {path:"dashboard",component:UserdashboardComponent,canActivate: [AuthguardGuard],
+  children: [
+    {
+      path: 'books',
+      component: GetbooksComponent
+    }, 
+    {
+      path: 'cart',
+      component: CartComponent
+    },
+    {
+      path: 'wishlist',
+      component: WishlistComponent
+    }  
+  ]}
 ];
 
 @NgModule({

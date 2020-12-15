@@ -35,7 +35,9 @@ import { CartComponent } from './components/cart/cart.component';
 import {MatListModule} from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { OrdersuccessComponent } from './components/ordersuccess/ordersuccess.component';
-
+import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,9 @@ import { OrdersuccessComponent } from './components/ordersuccess/ordersuccess.co
     DisplaybooksComponent,
     FooterComponent,
     CartComponent,
-    OrdersuccessComponent, 
+    OrdersuccessComponent,
+    WishlistComponent,
+    UserdashboardComponent, 
   ],
   imports: [
     BrowserModule,
@@ -76,6 +80,7 @@ import { OrdersuccessComponent } from './components/ordersuccess/ordersuccess.co
     MatMenuModule,
     MatListModule,
     MatSelectModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

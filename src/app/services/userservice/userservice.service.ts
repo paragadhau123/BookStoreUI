@@ -58,4 +58,34 @@ export class UserserviceService {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
     return this.http.post(`${this.baseUrl}WishList/${data.bookId}`, data, true, options);
   }
+
+  getWishlistData() {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.get(`${this.baseUrl}WishList`, true, options)
+  }
+
+  deleteWishList(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.delete(`${this.baseUrl}WishList/${data}`, true, options)
+  }
+
+  moveToCart(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.post(`${this.baseUrl}WishList/${data}`, data, true, options);
+  }
+
+  increase(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.get(`${this.baseUrl}Cart/IncreaseQuantity/${data.bookId}`, true, options)
+  }
+
+  decrease(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.get(`${this.baseUrl}Cart/DecreaseQuantity/${data.bookId}`, true, options)
+  }
+
+  order(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.post(`${this.baseUrl}Order/OrderAll`, data, true, options);
+  }
 }

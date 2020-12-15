@@ -16,6 +16,7 @@ export class GetbooksComponent implements OnInit {
   ngOnInit(): void {
     this.getAllBooks();
   }
+  
   getAllBooks(){
     console.log("Hello");
 
@@ -26,6 +27,7 @@ export class GetbooksComponent implements OnInit {
       console.log(this.values)
     });
   }
+
   getlowtohigh(){
     console.log("asc");
     this.userService.getasc().subscribe((data)=>{
@@ -36,6 +38,7 @@ export class GetbooksComponent implements OnInit {
       console.log(this.values)
     });
   }
+
   gethightolow(){
     console.log("asc");
     this.userService.getdsc().subscribe((data)=>{
