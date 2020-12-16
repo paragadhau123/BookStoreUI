@@ -6,12 +6,17 @@
     </div>
 </div>
 <div class="book-info">
-      <!-- <div class="out-of-stock" *ngIf="!value.quantity">
-        Out Of stock
-      </div> -->
     <div class="book-name">{{value.bookName}}</div>
     <div class="author-name">by {{value.authorName}}</div>
     <div class="price">Rs. {{value.price}}</div>
+    <div
+    class="availablity"
+    style="color: rgb(163, 43, 6);"
+    *ngIf="value.quantity <=0    ; else elsecondition1"
+  >
+   Out Of Stock
+  </div>
+    <ng-template #elsecondition1>
     <div
             class="availablity"
             style="color: rgb(163, 43, 6);"
@@ -19,6 +24,7 @@
           >
             Only {{ value.quantity }} left hurry up
           </div>
+        </ng-template>
           <ng-template #elsecondition>
             <div
               class="availablity"
@@ -39,118 +45,6 @@
 </div>
 
 
-<!-- <div class="cartBookDiv" *ngIf="!displayBook"> 
-    <div class="cartNum">
-        <h5 class="fontSize">My Cart</h5>
-        <h5 class="fontSize">({{bookArrayLength}})</h5>
-    </div>
-    <div *ngFor="let book of values" class="forClass">
-        <div class="innerImage">
-            <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
-
-        </div>
-
-        <div class="bookName1">
-            {{book.bookName}}
-            <div class="authorName1">
-                by {{book.authorName}}
-            </div>
-
-            <div class="price1">
-                Rs. {{book.price}}
-            </div>
-
-            <div style="display: flex; flex-direction: row; margin-top: 28px;">
-                <button type="submit" class="minus" (click)="decreaseQuantity(book)">-</button>
-                <input type="text" class="numInput" value="{{book.orderQuantity}}" id="number">
-                <button type="submit" class="plus" (click)="increaseQuantity(book)">+</button>
-                <button type="submit" class="removeButton" (click)="removeBookFromCart(book)">Remove</button>
-            </div>
-        </div>
-
-    </div>
-    <div class="orderButtonDiv">
-        <button  *ngIf="bookArrayLength>0 && reset" mat-stroked-button color="primary" (click)="reserFalse()" class="ff">Place
-            Order</button>
-    </div>
-</div>
-
-<div class="customerDetails" *ngIf="reset && !displayBook">
-    Customer Details
-</div>
-
-<div class="customerDetails" *ngIf="!reset">
-    Customer Details
-    <div class="nameContainer">
-        <mat-form-field appearance="outline" class="name">
-            <mat-label>Name</mat-label>
-            <input matInput placeholder=" Name" id="name" value="{{name}}" required>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="name">
-            <mat-label>Phone No</mat-label>
-            <input matInput placeholder="Phone" id="Phone" value="{{phone}}" required>
-        </mat-form-field>
-    </div>
-
-
-    <div class="nameContainer">
-
-        <mat-form-field appearance="outline" class="name1">
-            <mat-label>State</mat-label>
-            <input matInput placeholder="eg: State" value="{{state}}" required>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="name1">
-            <mat-label>City</mat-label>
-            <input matInput placeholder="eg: City" value="{{city}}" required>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="name1">
-            <mat-label>Pin</mat-label>
-            <input matInput placeholder="eg: 711101" value="{{pin}}" required>
-        </mat-form-field>
-
-    </div>
-    <mat-form-field class="example-full-width">
-        <mat-label>Address</mat-label>
-        <textarea matInput placeholder="Ex. 100 Main St">{{address}}</textarea>
-    </mat-form-field>
-
-
-    <div class="continueButtonDiv">
-        <button mat-stroked-button color="primary" *ngIf="orderSummary" (click)="orderSummaryFalse()" class="ff">Continue</button>
-    </div>
-</div>
-
-
-<div class="customerDetails" *ngIf="orderSummary && !displayBook">
-    Order Summery
-</div>
-<div class="customerDetails" *ngIf="!orderSummary && !displayBook">
-    <div *ngFor="let book of values" class="urClass">
-        <div class="innerImage">
-            <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
-        </div>
-
-        <div class="bookName1">
-            {{book.bookName}}
-            <div class="authorName1">
-                by {{book.authorName}}
-            </div>
-
-            <div class="price1">
-                Rs. {{book.price}}
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="continueButtonDiv">
-        <button mat-stroked-button color="primary" (click)="placeOrder(book)" class="ff">Check Out</button>
-    </div>
-</div><br><br><br> -->
 
 
 

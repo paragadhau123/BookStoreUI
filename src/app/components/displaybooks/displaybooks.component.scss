@@ -20,7 +20,7 @@
 }
 .book-card{
     width: 215px;
-    height: 270px;
+    height: 300px;
     background: white;
     border: 1px solid lightgrey;
     margin-right: 20px;
@@ -300,12 +300,16 @@
           flex-direction: row;
           margin-left: -50px;
         }
+        .book-photo{
+          width: 215px;
+          height: 140px;
+          background: whitesmoke;
+      }
         .bookName1{
           padding-top: 10px;
           padding-left: 26px;
         }
         .availablity {
-          margin-left: 20px;
           margin-bottom: 12px;
           font-size: 13px;
           font-family: Lato;
