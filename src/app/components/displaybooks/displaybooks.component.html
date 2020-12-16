@@ -10,7 +10,7 @@
     <div class="author-name">by {{value.authorName}}</div>
     <div class="price">Rs. {{value.price}}</div>
     <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!show">
-    <button mat-stroked-button color="primary" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
+    <button mat-stroked-button color="primary" *ngIf="displayBook" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
     <button mat-stroked-button color="primary" (click)="addToWishList(value)" class="button2">WISHLIST</button>
     </div>
 </div>
@@ -99,7 +99,6 @@
 
     <div class="continueButtonDiv">
         <button mat-stroked-button color="primary" *ngIf="orderSummary" (click)="orderSummaryFalse()" class="ff">Continue</button>
-
     </div>
 </div>
 

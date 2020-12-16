@@ -14,7 +14,7 @@ export class DisplaybooksComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @Input() values = [];
   @Input() count;
-  //@Input() displayBook: any;
+  @Input() displayBook: any;
   @Input() bookArrayLength;
   @Input() bookArray: any;
   tutorials: any;

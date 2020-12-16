@@ -12,16 +12,16 @@ export class GetbooksComponent implements OnInit {
   values=[];
   message=""
   count=0
-  displayBook: any;
+  displayBook:any;
+
   ngOnInit(): void {
     this.getAllBooks();
   }
   
   getAllBooks(){
     console.log("Hello");
-
     this.userService.getBooks().subscribe((data)=>{
-   //   this.displayBook = true;
+      this.displayBook = true;
       this.values=data["data"];
       this.count=this.values.length
       console.log(this.values)
@@ -31,7 +31,6 @@ export class GetbooksComponent implements OnInit {
   getlowtohigh(){
     console.log("asc");
     this.userService.getasc().subscribe((data)=>{
-    //  this.displayBook = true;
       this.values=[];
       this.values=data["data"];
       this.count=this.values.length
@@ -42,7 +41,6 @@ export class GetbooksComponent implements OnInit {
   gethightolow(){
     console.log("asc");
     this.userService.getdsc().subscribe((data)=>{
-     // this.displayBook = true;
       this.values=[];
       this.values=data["data"];
       this.count=this.values.length

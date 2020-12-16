@@ -1,4 +1,9 @@
-<div class="main-container">
+<mat-toolbar class="toolbar">
+  <span class="title"> Favorite Books</span><span class="count"
+>({{ size }} &nbsp;Items)</span>
+</mat-toolbar>
+<app-displaybooks [values]="wishlist" [count]="size"></app-displaybooks>
+<!-- <div class="main-container">
   <div class="container">
     <div class="title">
       Favorite Books
@@ -11,8 +16,8 @@
         >({{ size }} &nbsp;Items)</span
       >
     </div>
-  </div>
-  <div class="list-books">
+  </div> -->
+  <!-- <div class="list-books">
     <div
       class="getAllNotes"
       *ngFor="let book of wishlist"
@@ -75,7 +80,7 @@
             </div>
           </div>
 
-          <!--Added to bag-->
+         
 
           <div
             class="addedbtn"
@@ -118,4 +123,4 @@
       </mat-card>
     </div>
   </div>
-</div>
+</div> -->
