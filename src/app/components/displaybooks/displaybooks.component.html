@@ -1,4 +1,4 @@
-<div class="books" fxLayout="row" *ngIf="displayBook">
+<div class="books" fxLayout="row" >
 <div class="book-card" *ngFor="let value of values" >
 <div class="book-photo">
     <div class="image">
@@ -15,11 +15,10 @@
     </div>
 </div>
 </div>
-
 </div>
 
 
-<div class="cartBookDiv" *ngIf="!displayBook">
+<!-- <div class="cartBookDiv" *ngIf="!displayBook">
     <div class="cartNum">
         <h5 class="fontSize">My Cart</h5>
         <h5 class="fontSize">({{bookArrayLength}})</h5>
@@ -109,7 +108,7 @@
     Order Summery
 </div>
 <div class="customerDetails" *ngIf="!orderSummary && !displayBook">
-    <div *ngFor="let book of values" class="forClass">
+    <div *ngFor="let book of values" class="urClass">
         <div class="innerImage">
             <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
         </div>
@@ -131,7 +130,7 @@
     <div class="continueButtonDiv">
         <button mat-stroked-button color="primary" (click)="placeOrder(book)" class="ff">Check Out</button>
     </div>
-</div><br><br><br>
+</div><br><br><br> -->
 
 
 

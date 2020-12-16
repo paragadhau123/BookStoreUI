@@ -71,7 +71,7 @@ export class UserserviceService {
 
   moveToCart(data) {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
-    return this.http.post(`${this.baseUrl}WishList/${data}`, data, true, options);
+    return this.http.post(`${this.baseUrl}WishList/MoveToCart/${data}`, data, true, options);
   }
 
   increase(data) {

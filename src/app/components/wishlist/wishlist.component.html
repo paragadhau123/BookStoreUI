@@ -1,8 +1,7 @@
-<app-toolbar></app-toolbar>
 <div class="main-container">
   <div class="container">
     <div class="title">
-      Fevourite Books
+      Favorite Books
       <span
         style="
           font-size: 15px;
@@ -21,17 +20,12 @@
       [fxLayoutAlign]="center"
       fxFlexOffset="3"
     >
-      <mat-card
-        class="ll"
-        matTooltip="{{ book.bookDetails }}"
-      >
+      <mat-card class="ll" matTooltip="{{ book.bookDetails }}">
       <div class="book-photo">
         <div class="image">
             <img class="book-image" src={{book.image}} alt="">
         </div>
       </div>
-    
-
         <mat-card-content style="width: 17em;">
           <div class="out-of-stock" *ngIf="!book.quantity">
             Out Of stock
@@ -85,7 +79,7 @@
 
           <div
             class="addedbtn"
-            *ngIf="book.quantity && value[book.bookId] == book.bookId"
+            *ngIf="book.quantity && wishlist[book.bookId] == book.bookId"
           >
             <button
               style="

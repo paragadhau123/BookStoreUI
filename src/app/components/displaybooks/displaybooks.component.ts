@@ -3,16 +3,18 @@ import { UserserviceService } from "../../services/userservice/userservice.servi
 import { DataserviceService } from "../../services/dataservice/dataservice.service";
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
+
 @Component({
   selector: 'app-displaybooks',
   templateUrl: './displaybooks.component.html',
   styleUrls: ['./displaybooks.component.scss']
 })
+
 export class DisplaybooksComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @Input() values = [];
   @Input() count;
-  @Input() displayBook: any;
+  //@Input() displayBook: any;
   @Input() bookArrayLength;
   @Input() bookArray: any;
   tutorials: any;
@@ -25,8 +27,8 @@ export class DisplaybooksComponent implements OnInit {
   currentPage = 2;
   pageSizes = 10;
   public show: boolean = false;
-  reset = true;
-  orderSummary = true;
+  // reset = true;
+  // orderSummary = true;
   constructor(private user: UserserviceService, private data: DataserviceService, public route: Router) { }
 
   ngOnInit(): void {
@@ -43,13 +45,13 @@ export class DisplaybooksComponent implements OnInit {
     this.show = !this.show;
   }
 
-  reserFalse() {
-    this.reset = false;
-  }
+  // reserFalse() {
+  //   this.reset = false;
+  // }
 
-  orderSummaryFalse() {
-    this.orderSummary = false;
-  }
+  // orderSummaryFalse() {
+  //   this.orderSummary = false;
+  // }
 
   addToCart(data) {
     this.user.addCart(data).subscribe((data) => {
@@ -63,21 +65,21 @@ export class DisplaybooksComponent implements OnInit {
     });
   }
 
-  increaseQuantity(data) {
-    this.user.increase(data).subscribe((data) => {
-      this.data.changeMessage({});
-    });
-  }
-  decreaseQuantity(data) {
-    this.user.decrease(data).subscribe((data) => {
-      this.data.changeMessage({});
-    });
-  }
+  // increaseQuantity(data) {
+  //   this.user.increase(data).subscribe((data) => {
+  //     this.data.changeMessage({});
+  //   });
+  // }
+  // decreaseQuantity(data) {
+  //   this.user.decrease(data).subscribe((data) => {
+  //     this.data.changeMessage({});
+  //   });
+  // }
 
-  placeOrder(data) {
-    this.user.order(data).subscribe((data) => {
-      this.route.navigate(['order'])
-      this.data.changeMessage({});
-    });
-  }
+  // placeOrder(data) {
+  //   this.user.order(data).subscribe((data) => {
+  //     this.route.navigate(['order'])
+  //     this.data.changeMessage({});
+  //   });
+  // }
 }
