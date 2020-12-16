@@ -6,19 +6,40 @@
     </div>
 </div>
 <div class="book-info">
+      <!-- <div class="out-of-stock" *ngIf="!value.quantity">
+        Out Of stock
+      </div> -->
     <div class="book-name">{{value.bookName}}</div>
     <div class="author-name">by {{value.authorName}}</div>
     <div class="price">Rs. {{value.price}}</div>
+    <div
+            class="availablity"
+            style="color: rgb(163, 43, 6);"
+            *ngIf="value.quantity < 5 && value.quantity ; else elsecondition"
+          >
+            Only {{ value.quantity }} left hurry up
+          </div>
+          <ng-template #elsecondition>
+            <div
+              class="availablity"
+              style="color: rgb(2, 110, 2);"
+              *ngIf="value.quantity"
+            >
+              Available Books: {{ value.quantity }}
+            </div>
+            <div style="height: 26px;" *ngIf="!value.quantity && isSeller"></div>
+          </ng-template>
     <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!show">
-    <button mat-stroked-button color="primary" *ngIf="displayBook" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
-    <button mat-stroked-button color="primary" (click)="addToWishList(value)" class="button2">WISHLIST</button>
-    </div>
+    <button mat-stroked-button color="primary" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
+    <button mat-stroked-button color="primary" *ngIf="displayBook" (click)="addToWishList(value)" class="button2">WISHLIST</button>
+    <button mat-stroked-button color="primary" *ngIf="wishList" (click)="removeWishlist(book.wishListId)" class="button2">REMOVE</button>
+</div>
 </div>
 </div>
 </div>
 
 
-<!-- <div class="cartBookDiv" *ngIf="!displayBook">
+<!-- <div class="cartBookDiv" *ngIf="!displayBook"> 
     <div class="cartNum">
         <h5 class="fontSize">My Cart</h5>
         <h5 class="fontSize">({{bookArrayLength}})</h5>

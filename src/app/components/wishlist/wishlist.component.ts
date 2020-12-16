@@ -15,11 +15,13 @@ export class WishlistComponent implements OnInit {
   page: number = 1;
   budgetTotal;
   value: any = [];
+  wishList:any;
   ngOnInit(): void {
     this.getAllWishlist();
   }
   getAllWishlist() {
     this.user.getWishlistData().subscribe((data) => {
+      this.wishList = true;
       console.log(data);
       this.wishlist = data["data"];
       this.size = this.wishlist.length;
