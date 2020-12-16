@@ -108,7 +108,8 @@ export class BooksComponent implements OnInit {
       "BookName": (<HTMLInputElement>document.getElementById('name')).value,
       "AuthorName": (<HTMLInputElement>document.getElementById('author')).value,
       "Description": (<HTMLInputElement>document.getElementById('description')).value,
-      "Price": (<HTMLInputElement>document.getElementById('price')).value,
+      "Price":parseInt((<HTMLInputElement>document.getElementById('price')).value),
+      "Quantity":parseInt((<HTMLInputElement>document.getElementById('quantity')).value),
       "Image":this.localUrl,
       "BookId": this.data1.bookId,
     }
