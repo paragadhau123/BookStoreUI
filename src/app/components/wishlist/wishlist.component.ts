@@ -19,6 +19,7 @@ export class WishlistComponent implements OnInit {
   ngOnInit(): void {
     this.getAllWishlist();
   }
+
   getAllWishlist() {
     this.user.getWishlistData().subscribe((data) => {
       this.wishList = true;
@@ -27,11 +28,13 @@ export class WishlistComponent implements OnInit {
       this.size = this.wishlist.length;
     });
   }
+
   removeWishlist(bookId){
     this.user.deleteWishList(bookId).subscribe((data) => {
       this.getAllWishlist();
     });
   }
+  
   addToCart(data) {
     this.user.moveToCart(data).subscribe((data) => {
       this.getAllWishlist();

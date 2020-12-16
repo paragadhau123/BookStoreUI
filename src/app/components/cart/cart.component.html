@@ -19,7 +19,7 @@
                 <button type="submit" class="minus" (click)="decreaseQuantity(book)">-</button>
                 <input type="text" class="numInput" value="{{book.orderQuantity}}" id="number">
                 <button type="submit" class="plus" (click)="increaseQuantity(book)">+</button>
-                <button type="submit" class="removeButton" (click)="removeBookFromCart(book)">Remove</button>
+                <button type="submit" class="removeButton" (click)="removeBookFromCart(book.cartId)">Remove</button>
             </div>
         </div>
     </div>

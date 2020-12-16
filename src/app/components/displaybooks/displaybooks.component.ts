@@ -1,4 +1,4 @@
-import { Component, OnInit, Input ,ViewChild} from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { UserserviceService } from "../../services/userservice/userservice.service";
 import { DataserviceService } from "../../services/dataservice/dataservice.service";
 import { Router } from '@angular/router';
@@ -27,60 +27,29 @@ export class DisplaybooksComponent implements OnInit {
   pageSize = 3;
   currentPage = 2;
   pageSizes = 10;
+  cartCondition: any = [];
   public show: boolean = false;
-  // reset = true;
-  // orderSummary = true;
+ 
   constructor(private user: UserserviceService, private data: DataserviceService, public route: Router) { }
 
   ngOnInit(): void {
   }
-  handlePageChange(event): void {
-    this.page = event;
-  }
 
-  handlePageSizeChange(event): void {
-    this.pageSize = event.target.value;
-    this.page = 1;
-  }
   toggle() {
     this.show = !this.show;
   }
-
-  // reserFalse() {
-  //   this.reset = false;
-  // }
-
-  // orderSummaryFalse() {
-  //   this.orderSummary = false;
-  // }
-
   addToCart(data) {
     this.user.addCart(data).subscribe((data) => {
 
     });
   }
-
+  cartConditionMethod(index) {
+    this.cartCondition[index] = true;
+  }
+  
   addToWishList(data) {
     this.user.addWishList(data).subscribe((data) => {
 
     });
   }
-
-  // increaseQuantity(data) {
-  //   this.user.increase(data).subscribe((data) => {
-  //     this.data.changeMessage({});
-  //   });
-  // }
-  // decreaseQuantity(data) {
-  //   this.user.decrease(data).subscribe((data) => {
-  //     this.data.changeMessage({});
-  //   });
-  // }
-
-  // placeOrder(data) {
-  //   this.user.order(data).subscribe((data) => {
-  //     this.route.navigate(['order'])
-  //     this.data.changeMessage({});
-  //   });
-  // }
 }

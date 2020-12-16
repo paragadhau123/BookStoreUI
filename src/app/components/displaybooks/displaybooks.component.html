@@ -36,7 +36,8 @@
             <div style="height: 26px;" *ngIf="!value.quantity && isSeller"></div>
           </ng-template>
     <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!show">
-    <button mat-stroked-button color="primary" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
+    <button mat-stroked-button color="primary"  *ngIf="!value.cartConditionButton" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
+    <button mat-stroked-button color="primary" *ngIf="value.cartConditionButton" class="cartButton1">ADDED TO CART</button>
     <button mat-stroked-button color="primary" *ngIf="displayBook" (click)="addToWishList(value)" class="button2">WISHLIST</button>
     <button mat-stroked-button color="primary" *ngIf="wishList" (click)="removeWishlist(book.wishListId)" class="button2">REMOVE</button>
 </div>

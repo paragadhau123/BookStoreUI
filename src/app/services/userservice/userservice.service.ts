@@ -88,4 +88,9 @@ export class UserserviceService {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
     return this.http.post(`${this.baseUrl}Order/OrderAll`, data, true, options);
   }
+
+  deleteCart(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    return this.http.delete(`${this.baseUrl}Cart/${data}`, true, options)
+  }
 }

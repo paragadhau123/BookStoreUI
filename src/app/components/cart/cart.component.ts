@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
 
   constructor(private user: UserserviceService, private data: DataserviceService, public route: Router) { }
+
   values = [];
   public show: boolean = false;
   reset = true;
@@ -39,6 +40,7 @@ export class CartComponent implements OnInit {
       console.log(data);
       this.cartBookArray = data["data"];
       this.length = this.cartBookArray.length;
+     // this.data.changeMessage(this.length);
     });
   }
 
@@ -57,6 +59,12 @@ export class CartComponent implements OnInit {
   placeOrder(data) {
     this.user.order(data).subscribe((data) => {
       this.route.navigate(['order'])
+      this.data.changeMessage({});
+    });
+  }
+
+  removeBookFromCart(book){
+    this.user.deleteCart(book).subscribe((data) => {
       this.data.changeMessage({});
     });
   }
