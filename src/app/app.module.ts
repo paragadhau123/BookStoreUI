@@ -38,6 +38,7 @@ import { OrdersuccessComponent } from './components/ordersuccess/ordersuccess.co
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchPipe } from './pipes/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CartComponent,
     OrdersuccessComponent,
     WishlistComponent,
-    UserdashboardComponent, 
+    UserdashboardComponent,
+    SearchPipe, 
   ],
   imports: [
     BrowserModule,

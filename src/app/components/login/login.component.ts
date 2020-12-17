@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('role', response['data']['role']);
       localStorage.setItem('email', response['data']['emailId']);
       if (localStorage.getItem('role') == "User") {
-        this.route.navigateByUrl('/userDashboard')
+        this.route.navigateByUrl('dashboard/books')
       }
       else {
         this.route.navigateByUrl('/adminDashBoard')

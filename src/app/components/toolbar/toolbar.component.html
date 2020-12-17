@@ -8,7 +8,7 @@
             <mat-icon class="search" >search</mat-icon>
             </button>
         </div>
-        <input Class="searchInput" type="input" placeholder="Search..">
+        <input Class="searchInput"   type="searchbar" [(ngModel)]="bookName"  placeholder="Search..">
     </div>
     <div *ngIf="dispalyimg" class="cart-div">
     <div> <mat-icon matBadge="{{length}}" matBadgeColor="warn"><img class="cart-logo" routerLink="/dashboard/cart" src="../../../assets/supermarket.svg"></mat-icon>

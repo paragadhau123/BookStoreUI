@@ -58,7 +58,7 @@ export class CartComponent implements OnInit {
 
   placeOrder(data) {
     this.user.order(data).subscribe((data) => {
-      this.route.navigate(['order'])
+      this.route.navigate(['dashboard/orderSuccess'])
       this.data.changeMessage({});
     });
   }

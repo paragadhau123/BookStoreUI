@@ -25,7 +25,7 @@
     border: 1px solid lightgrey;
     margin-right: 20px;
     margin-bottom: 20px;
-   
+     
 }
 .sort-choice {
     align-content: flex-end;
@@ -51,7 +51,21 @@
 .book-info{
     padding: 8%;
 }
+.discriptionCart{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+//  position: absolute;
+  //width: 210px;
+//  border: 2px solid rgb(238, 237, 237);
+ // padding: 5%;
 
+}
+.bookDetailHeader{
+  font-size: medium;
+  font-weight: bold;
+  margin-top: 10px;
+}
 .author-name{
     font-size: 10px;
     color: darkgrey;
@@ -388,26 +402,19 @@
             padding-top: 10px;
             padding-left: 50px;
         }
-        
-        
-        
         .removeButton{
         margin-left: 13px;
         border: none;
         outline: none;
         background-color: white;
         }
-        
         .orderButtonDiv{
           display: flex;
           justify-content: flex-end;
           padding-right: 20px;
         
         }
-        
-        
         .continueButtonDiv{
-         // width: 100%;
           display: flex;
           justify-content: flex-end;
           padding-right: 20px;
@@ -436,23 +443,42 @@
           flex-direction: row;
           justify-content: space-between;
          width: 80%;
-         //border: 1px solid rebeccapurple;
         }
-        
         .name{
         width: 48%;
-         
-        
         }
-        
-        
+            
         .example-full-width {
           width: 80%;
         }
         
-        
+        .matCartDiv2{
+          width: 208px;
+          //width: auto;
+          display: flex;
+          flex-wrap: wrap;
+          height: auto;
+          margin-left: 2px;
+         }
+
         .name1{
           width: 32%;
         }
-        
+
+        .bookDisp{
+          color: rgb(172, 169, 169);
+          font-size: xx-small;
+        }
+
+        .paginaterAllignment{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .discriptionCart{
+          display: flex;
+          flex-wrap: wrap;
+          height: 200px;
+        }
       

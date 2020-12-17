@@ -1,11 +1,14 @@
-<div class="books" fxLayout="row" >
-<div class="book-card" *ngFor="let value of values" >
+<div class="books" fxLayout="row" (change)="handlePageSizeChange($event)">
+<div class="book-card" *ngFor="let value of values | paginate: { 
+    itemsPerPage: pageSizes,
+    currentPage: page,
+    totalItems: count } ;let i = index" (mouseover)="showDiscription[i]=true" (mouseout)="showDiscription[i]=false ">    
 <div class="book-photo">
     <div class="image">
         <img class="book-image" src={{value.image}} alt="">
     </div>
 </div>
-<div class="book-info">
+<div class="book-info" >
     <div class="book-name">{{value.bookName}}</div>
     <div class="author-name">by {{value.authorName}}</div>
     <div class="price">Rs. {{value.price}}</div>
@@ -36,15 +39,22 @@
             <div style="height: 26px;" *ngIf="!value.quantity && isSeller"></div>
           </ng-template>
     <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!show">
-    <button mat-stroked-button color="primary"  *ngIf="!value.cartConditionButton" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
-    <button mat-stroked-button color="primary" *ngIf="value.cartConditionButton" class="cartButton1">ADDED TO CART</button>
+    <button mat-stroked-button color="primary"  (click)="addToCart(value)" class="button1">ADD TO BAG</button>
     <button mat-stroked-button color="primary" *ngIf="displayBook" (click)="addToWishList(value)" class="button2">WISHLIST</button>
     <button mat-stroked-button color="primary" *ngIf="wishList" (click)="removeWishlist(book.wishListId)" class="button2">REMOVE</button>
 </div>
-</div>
-</div>
+    </div>
+        <mat-card class="discriptionCart" *ngIf="showDiscription[i]">
+            <p class="bookDetailHeader">Book Details</p>
+           <p class="bookDisp">{{value.description}}</p> 
+        </mat-card>
 </div>
 
+</div>
+<div class="paginaterAllignment">
+    <pagination-controls (pageChange)="handlePageChange($event)" previousLabel="Prev" nextLabel="Next"
+        responsive="true"></pagination-controls>
+</div>
 
 
 

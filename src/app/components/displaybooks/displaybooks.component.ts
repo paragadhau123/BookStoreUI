@@ -3,6 +3,7 @@ import { UserserviceService } from "../../services/userservice/userservice.servi
 import { DataserviceService } from "../../services/dataservice/dataservice.service";
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
+import { ValueTransformer } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-displaybooks',
@@ -23,18 +24,26 @@ export class DisplaybooksComponent implements OnInit {
   currentIndex = -1;
   title = '';
   page = 1;
-  count1 = 0;
   pageSize = 3;
   currentPage = 2;
-  pageSizes = 10;
-  cartCondition: any = [];
+  pageSizes = 3;
+  showDiscription: any = [];
   public show: boolean = false;
- 
+  bookSearch: any;
+
   constructor(private user: UserserviceService, private data: DataserviceService, public route: Router) { }
 
   ngOnInit(): void {
   }
 
+  handlePageChange(event): void {
+    this.page = event;
+  }
+
+  handlePageSizeChange(event): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+  }
   toggle() {
     this.show = !this.show;
   }
@@ -43,10 +52,7 @@ export class DisplaybooksComponent implements OnInit {
 
     });
   }
-  cartConditionMethod(index) {
-    this.cartCondition[index] = true;
-  }
-  
+
   addToWishList(data) {
     this.user.addWishList(data).subscribe((data) => {
 

@@ -39,7 +39,11 @@ const routes: Routes = [
     {
       path: 'wishlist',
       component: WishlistComponent
-    }  
+    },
+    {
+      path:"orderSuccess",
+      component:OrdersuccessComponent
+    }
   ]}
 ];
 

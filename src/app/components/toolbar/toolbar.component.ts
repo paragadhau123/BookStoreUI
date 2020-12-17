@@ -2,6 +2,7 @@ import { Component, OnInit ,Input,ViewChild} from '@angular/core';
 import { UtilityService } from "../../services/utilityservice/utility.service";
 import { Router } from '@angular/router';
 import { DataserviceService } from "../../services/dataservice/dataservice.service";
+import { ModelService } from "../../model/model.service";
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -17,6 +18,9 @@ export class ToolbarComponent implements OnInit {
   token = localStorage.getItem('token')
   name = localStorage.getItem('firstName')
   email = localStorage.getItem('email')
+  books: ModelService[];
+  filteredBooks: ModelService[];
+  bookName: string;
   ngOnInit(): void {
     if (this.childMessage == "Admin"){
       this.dispalyimg=false;
@@ -33,7 +37,10 @@ export class ToolbarComponent implements OnInit {
     })
       
   }
-  
+  filtereBooks(searchString: string) {
+    return this.books.filter(book =>
+      book.bookName.toLowerCase().indexOf(searchString.toLowerCase()) !== -1);
+  }
   logout() {
     this.utility.displayMessage("Logout successfully")
     localStorage.removeItem('token')
