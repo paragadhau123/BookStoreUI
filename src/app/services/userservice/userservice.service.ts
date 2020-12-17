@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { environment } from "../../../environments/environment";
 import { HttpHeaders } from '@angular/common/http';
 import { HttpserviceService } from "../httpservice/httpservice.service";
+import { Subject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
   baseUrl = environment.baseUrl;
+  private searchBookData = new Subject<any>();
   constructor(private http: HttpserviceService) {
 
   }
@@ -92,5 +94,14 @@ export class UserserviceService {
   deleteCart(data) {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
     return this.http.delete(`${this.baseUrl}Cart/${data}`, true, options)
+  }
+
+  setSearchBookData(message: any) {
+    console.log("set service", message);
+    return this.searchBookData.next({ books: message });
+  }
+  getSearchBookData(): Observable<any> {
+    console.log("get service");
+    return this.searchBookData.asObservable();
   }
 }

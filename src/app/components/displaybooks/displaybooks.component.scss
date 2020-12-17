@@ -80,6 +80,14 @@
     color: white;
     background: #A03037;
 }
+.added{
+  font-size: 10px;
+  color: white;
+  background: #3371B5;
+  width: 200px;
+}
+
+
 .ff{
     font-size: 12px;
     color: white;
@@ -230,29 +238,23 @@
             flex-direction: row;
             justify-content: space-between;
            width: 80%;
-           //border: 1px solid rebeccapurple;
+         
           }
           .bookName{
             margin-left: 10px;
             margin-top: 8px;
             font-size: large;
-         //   font: outline;
           }
-        
           .authorName{
             margin-left: 10px;
-         //   margin-bottom: 5px;
             font-size: xx-small;
             font: outline;
             color: rgb(197, 197, 197);
           }
         
          .price{
-        //  margin-left: 10px;
           margin-top: 1px;
-         // font-size: small;
           font: outline;
-         // font-style: oblique;
         }
         
         .buttons{

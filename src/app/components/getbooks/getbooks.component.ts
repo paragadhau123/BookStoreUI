@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from "../../services/userservice/userservice.service";
-
+import { DataserviceService } from "../../services/dataservice/dataservice.service";
 @Component({
   selector: 'app-getbooks',
   templateUrl: './getbooks.component.html',
@@ -8,7 +8,7 @@ import { UserserviceService } from "../../services/userservice/userservice.servi
 })
 export class GetbooksComponent implements OnInit {
 
-  constructor(private userService:UserserviceService) { }
+  constructor(private userService:UserserviceService,private data :DataserviceService) { }
   values=[];
   message=""
   count=0
@@ -16,6 +16,7 @@ export class GetbooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllBooks();
+    this.data.currentMessage.subscribe(data => { this.getAllBooks() })
   }
   
   getAllBooks(){

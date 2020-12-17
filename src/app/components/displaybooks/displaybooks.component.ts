@@ -26,30 +26,41 @@ export class DisplaybooksComponent implements OnInit {
   page = 1;
   pageSize = 3;
   currentPage = 2;
-  pageSizes = 3;
+  pageSizes = 4;
   showDiscription: any = [];
   public show: boolean = false;
   bookSearch: any;
-
+  cartCondition: any = [];
   constructor(private user: UserserviceService, private data: DataserviceService, public route: Router) { }
 
   ngOnInit(): void {
+    this.data.currentMessage.subscribe(data => { this.getSearchBookData()});
   }
 
   handlePageChange(event): void {
     this.page = event;
   }
 
+  getSearchBookData() {
+    this.user.getSearchBookData().subscribe((message) => {
+      console.log("search data- ", message.books);
+      this.bookSearch = message.books;
+    })
+  }
+
   handlePageSizeChange(event): void {
     this.pageSize = event.target.value;
     this.page = 1;
   }
+
   toggle() {
     this.show = !this.show;
   }
+  
   addToCart(data) {
     this.user.addCart(data).subscribe((data) => {
-
+      this.data.changeMessage({});
+     //this.cartConditionMethod(data);
     });
   }
 
@@ -58,4 +69,5 @@ export class DisplaybooksComponent implements OnInit {
 
     });
   }
+
 }

@@ -1,19 +1,19 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ModelService } from "../model/model.service";
-
+import { Model  } from "../pipes/model";
 @Pipe({
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
   private counter = 0;
 
-  transform(books: ModelService[], searchTerm: string): ModelService[] {
+  transform(books: Model[], searchTerm: string) {
     if (!books || !searchTerm) {
       return books;
     }
+
     return books.filter(book =>
-      book.bookName.toLowerCase().indexOf(searchTerm.toLowerCase()) != -1);
-  }
-  }
+      book.bookName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+    }
+}  
 
 
