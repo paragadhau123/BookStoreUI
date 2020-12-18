@@ -64,6 +64,12 @@ export class DisplaybooksComponent implements OnInit {
     });
   }
 
+  removeWishlist(bookId){
+    this.user.deleteWishList(bookId).subscribe((data) => {
+      this.data.changeMessage({});
+    });
+  }
+
   addToWishList(data) {
     this.user.addWishList(data).subscribe((data) => {
 

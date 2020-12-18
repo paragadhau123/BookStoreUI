@@ -18,16 +18,19 @@
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <img class="img" src="../../../assets/mm.jpg" alt="Avatar">
       </button>
-    <mat-menu #menu="matMenu" class="menu">
-        <div class="userDetail">
+    <mat-menu #menu="matMenu" class="menu" >
+        <div class="userDetail" style="right: -100%;">
             <div fxLayout="row wrap" fxLayoutAlign="center">
                 <img class="img inner" src="../../../assets/DSC_0106.JPG-01.jpeg" alt="Avatar ">
             </div>
             <div fxLayoutAlign="center" class="name">{{name}}</div>
             <div fxLayoutAlign="center" class="email">{{email}}</div>
-            <div fxLayout="row wrap" fxLayoutAlign="center" class="button">
+            <div fxLayout="row wrap" fxLayoutAlign="space-evenly" class="button">
                 <button mat-raised-button color="primary" type="submit "style="
                 background-color: #A03037;" (click)="logout() ">Logout</button>
+
+                <button mat-raised-button color="primary" type="submit "style="
+                background-color: #A03037;" routerLink="/dashboard/wishlist" >WishList</button>
             </div>
         </div>
     </mat-menu>

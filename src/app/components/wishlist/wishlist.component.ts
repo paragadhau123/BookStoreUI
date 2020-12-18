@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from "../../services/userservice/userservice.service";
+import { DataserviceService } from "../../services/dataservice/dataservice.service";
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
@@ -7,7 +8,8 @@ import { UserserviceService } from "../../services/userservice/userservice.servi
 })
 export class WishlistComponent implements OnInit {
 
-  constructor(private user:UserserviceService) { }
+  constructor(private user: UserserviceService,private data :DataserviceService) { }
+  
   wishlist: any;
   size: number;
   id: any;
@@ -15,8 +17,10 @@ export class WishlistComponent implements OnInit {
   page: number = 1;
   budgetTotal;
   value: any = [];
-  wishList:any;
+  wishList: any;
+
   ngOnInit(): void {
+    this.data.currentMessage.subscribe(data => { this.getAllWishlist()});
     this.getAllWishlist();
   }
 
@@ -28,16 +32,9 @@ export class WishlistComponent implements OnInit {
       this.size = this.wishlist.length;
     });
   }
-
-  removeWishlist(bookId){
-    this.user.deleteWishList(bookId).subscribe((data) => {
-      this.getAllWishlist();
-    });
-  }
-  
   addToCart(data) {
     this.user.moveToCart(data).subscribe((data) => {
       this.getAllWishlist();
     });
-}
+  }
 }

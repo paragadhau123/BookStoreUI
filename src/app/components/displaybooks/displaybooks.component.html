@@ -39,13 +39,15 @@
             <div style="height: 26px;" *ngIf="!value.quantity && isSeller"></div>
           </ng-template>
     <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!show">
-    <button mat-stroked-button color="primary" *ngIf="!value.isAddedToCart" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
-    <button mat-stroked-button color="primary" *ngIf="value.isAddedToCart" class="added">ADDED TO BAG</button>
-    <button mat-stroked-button color="primary" *ngIf="displayBook && !value.isAddedToCart" (click)="addToWishList(value)" class="button2">WISHLIST</button>
-    <button mat-stroked-button color="primary" *ngIf="wishList && !value.isAddedToCart" (click)="removeWishlist(book.wishListId)" class="button2">REMOVE</button>
+    <button mat-stroked-button color="primary" *ngIf="!value.isAddedToCart && value.quantity" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
+    <button mat-stroked-button color="primary" *ngIf="value.isAddedToCart " class="added">ADDED TO BAG</button>
+    <button mat-stroked-button color="primary" *ngIf="displayBook && !value.isAddedToCart && value.quantity" (click)="addToWishList(value)" class="button2">WISHLIST</button>
+    <button mat-stroked-button color="primary" *ngIf="!value.quantity && displayBook" (click)="addToWishList(value)" class="wishlist">WISHLIST</button>
+    <button mat-stroked-button color="primary" *ngIf="wishList && !value.isAddedToCart && value.quantity" (click)="removeWishlist(value.wishListId)" class="button2">REMOVE</button>
+    <button mat-stroked-button color="primary" *ngIf="wishList && !value.isAddedToCart && !value.quantity" (click)="removeWishlist(value.wishListId)" class="wishlist">REMOVE</button>
 </div>
     </div>
-        <mat-card class="discriptionCart" *ngIf="showDiscription[i]">
+        <mat-card class="discriptionCart" *ngIf="showDiscription[i] && displayBook">
             <p class="bookDetailHeader">Book Details</p>
            <p class="bookDisp">{{value.description}}</p> 
         </mat-card>
