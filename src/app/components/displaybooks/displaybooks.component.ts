@@ -60,7 +60,7 @@ export class DisplaybooksComponent implements OnInit {
   addToCart(data) {
     this.user.addCart(data).subscribe((data) => {
       this.data.changeMessage({});
-     //this.cartConditionMethod(data);
+      this.data.changeCartLength({ data1: data });
     });
   }
 

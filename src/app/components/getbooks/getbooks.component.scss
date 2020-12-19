@@ -4,12 +4,24 @@
  .toolbar{
      background: #ffff;
  }
+ @media only screen and (max-width: 370px) {
+     .title{
+       margin-left: 50px;
+       font-size: 40px;
+    }
+  }
+
  .count{
     font-size: 13px;
     margin-left: 8px;
     margin-top: 3px;
     color: grey;
 }
+@media only screen and (max-width: 370px) {
+    .count{
+        font-size: 40px;   
+   }
+ }
 .sortByRevelence{  
     margin-left: 675px;
     border: 0.5px solid rgb(214, 214, 214);
@@ -19,6 +31,11 @@ font-size: small;
 
 
 }
+@media only screen and (max-width: 370px) {
+    .sortByRevelence{
+        margin-left: 326px;
+   }
+ }
 ::ng-deep{
     .mat-menu-panel .pannel{
       width: 135px;

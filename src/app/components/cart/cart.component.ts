@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.getCartData();
     this.data.currentMessage.subscribe(data => { this.getCartData() })
+    this.data.changeMessage(this.length);
   }
 
   toggle() {
@@ -40,7 +41,7 @@ export class CartComponent implements OnInit {
       console.log(data);
       this.cartBookArray = data["data"];
       this.length = this.cartBookArray.length;
-     // this.data.changeMessage(this.length);
+      //this.data.changeMessage(this.length);
     });
   }
 
@@ -60,12 +61,23 @@ export class CartComponent implements OnInit {
     this.user.order(data).subscribe((data) => {
       this.route.navigate(['dashboard/orderSuccess'])
       this.data.changeMessage({});
+      this.data.decreaseCartLength({});
     });
   }
 
   removeBookFromCart(book){
-    this.user.deleteCart(book).subscribe((data) => {
+    this.data.decreaseCartLength({data2:book});
+    this.user.deleteCart(book).subscribe( async (data) => {
       this.data.changeMessage({});
+      await this.resolveAfter2Seconds(1);
+      this.data.changeMessage({});
+    });
+  }
+  resolveAfter2Seconds(x) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(x);
+      }, 200);
     });
   }
 }

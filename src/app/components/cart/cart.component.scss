@@ -352,6 +352,18 @@
           padding-top: 10px;
           padding-left: 50px;
         }
+        @media only screen and (max-width: 360px) {
+          .customerDetails{
+            min-width: 150px;
+            height: 10px auto;
+            border: 1px solid rgb(221, 221, 221);
+            margin-top: 10px;
+            padding-bottom: 16px;
+            margin-left: 200px;
+            padding-top: 10px;
+            padding-left: 50px;
+          }
+        }
         orderDetails{
             width: 570px;
             height: 10px auto;
@@ -415,8 +427,6 @@
         
         .name{
         width: 48%;
-         
-        
         }
         
         

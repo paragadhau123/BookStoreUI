@@ -1,9 +1,9 @@
-import { Component, OnInit ,Input,ViewChild} from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { UtilityService } from "../../services/utilityservice/utility.service";
 import { Router } from '@angular/router';
 import { DataserviceService } from "../../services/dataservice/dataservice.service";
 import { UserserviceService } from "../../services/userservice/userservice.service";
-import {Model  } from "../../pipes/model";
+import { Model } from "../../pipes/model";
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -11,37 +11,58 @@ import {Model  } from "../../pipes/model";
 })
 
 export class ToolbarComponent implements OnInit {
-  constructor(private utility:UtilityService, public route: Router,private data:DataserviceService,private user:UserserviceService) { }
+  constructor(private utility: UtilityService, public route: Router, private data: DataserviceService, private user: UserserviceService) { }
   @Input() childMessage: string;
-  length:any;
-  dispalyimg=null
-  dispalySearchBar=null
+  length: any;
+  dispalyimg = null
+  dispalySearchBar = null
   token = localStorage.getItem('token')
   name = localStorage.getItem('firstName')
   email = localStorage.getItem('email')
   books: Model[];
   filteredBooks: Model[];
   bookName: string;
- @Input() searchTerm:any;
+  cartArray: any = [];
+  @Input() searchTerm: any;
   ngOnInit(): void {
-    if (this.childMessage == "Admin"){
-      this.dispalyimg=false;
-     this.dispalySearchBar=false;
-    
+    this.data.currentMessage1.subscribe(message => {
+      console.log("receved message  ==>", message);
+      this.length++;
+    })
+    this.data.currentMessage2.subscribe(message=>{
+    this.length--;
+    })
+
+    if (this.childMessage == "Admin") {
+      this.dispalyimg = false;
+      this.dispalySearchBar = false;
+
     }
-    else{
-      this.dispalyimg=true;
-      this.dispalySearchBar=true;
+    else {
+      this.dispalyimg = true;
+      this.dispalySearchBar = true;
     }
     this.data.currentMessage.subscribe(message => {
-      console.log("receved message  "+message);
+      console.log("receved message  " + message);
       this.length = message;
     })
-      
+    this.displayCartBooks();
   }
   bookSearch() {
-    console.log("Parag"+this.bookName);
+    console.log("Parag" + this.bookName);
     this.user.setSearchBookData(this.bookName);
+  }
+  displayCartBooks() {
+    this.user.getCartData().subscribe(result => {
+      this.cartArray = result['data'];
+      this.cartArray.reverse();
+      this.length = this.cartArray.length;
+      console.log("length is " + this.length);
+      console.log(this.cartArray);
+    },
+      (error) => {
+        console.log(error)
+      })
   }
   logout() {
     this.utility.displayMessage("Logout successfully")

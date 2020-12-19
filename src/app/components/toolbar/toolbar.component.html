@@ -11,7 +11,7 @@
         <input Class="searchInput"   type="searchbar" [(ngModel)]="bookName" (input)="bookSearch()" placeholder="Search..">
     </div>
     <div *ngIf="dispalyimg" class="cart-div">
-    <div> <mat-icon matBadge="{{length}}" matBadgeColor="warn"><img class="cart-logo" routerLink="/dashboard/cart" src="../../../assets/supermarket.svg"></mat-icon>
+    <div> <mat-icon matBadge="{{length}}" [matBadgeHidden]="length == 0" matBadgeColor="warn"><img class="cart-logo" routerLink="/dashboard/cart" src="../../../assets/supermarket.svg"></mat-icon>
     <span class="cart">Cart</span></div>
     </div>
     <span class="settings"></span>

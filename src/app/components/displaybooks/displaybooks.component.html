@@ -1,5 +1,5 @@
 <div class="books" fxLayout="row" (change)="handlePageSizeChange($event)">
-<div class="book-card" fxFlex.xs="column" *ngFor="let value of values | search: bookSearch | paginate: { 
+<div class="book-card" fxFlex="column"  *ngFor="let value of values | search: bookSearch | paginate: { 
     itemsPerPage: pageSizes,
     currentPage: page,
     totalItems: count } ;let i = index" (mouseover)="showDiscription[i]=true" (mouseout)="showDiscription[i]=false ">    
@@ -13,7 +13,7 @@
     <div class="author-name">by {{value.authorName}}</div>
     <div class="price">Rs. {{value.price}}</div>
     <div
-    class="availablity"
+    class="availablity out"
     style="color: rgb(163, 43, 6);"
     *ngIf="value.quantity <=0    ; else elsecondition1"
   >
@@ -21,7 +21,7 @@
   </div>
     <ng-template #elsecondition1>
     <div
-            class="availablity"
+            class="availablity only"
             style="color: rgb(163, 43, 6);"
             *ngIf="value.quantity < 5 && value.quantity ; else elsecondition"
           >
@@ -30,7 +30,7 @@
         </ng-template>
           <ng-template #elsecondition>
             <div
-              class="availablity"
+              class="availablity available"
               style="color: rgb(2, 110, 2);"
               *ngIf="value.quantity"
             >
@@ -38,11 +38,11 @@
             </div>
             <div style="height: 26px;" *ngIf="!value.quantity && isSeller"></div>
           </ng-template>
-    <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!show">
+    <div fxLayout="row" fxLayoutAlign="space-between end" *ngIf="!show" class="butt">
     <button mat-stroked-button color="primary" *ngIf="!value.isAddedToCart && value.quantity" (click)="addToCart(value)" class="button1">ADD TO BAG</button>
-    <button mat-stroked-button color="primary" *ngIf="value.isAddedToCart " class="added">ADDED TO BAG</button>
+    <button mat-stroked-button color="primary" *ngIf="value.isAddedToCart && displayBook" class="added">ADDED TO BAG</button>
     <button mat-stroked-button color="primary" *ngIf="displayBook && !value.isAddedToCart && value.quantity" (click)="addToWishList(value)" class="button2">WISHLIST</button>
-    <button mat-stroked-button color="primary" *ngIf="!value.quantity && displayBook" (click)="addToWishList(value)" class="wishlist">WISHLIST</button>
+    <button mat-stroked-button color="primary" *ngIf="!value.quantity && displayBook && !value.isAddedToCart " (click)="addToWishList(value)" class="wishlist">WISHLIST</button>
     <button mat-stroked-button color="primary" *ngIf="wishList && !value.isAddedToCart && value.quantity" (click)="removeWishlist(value.wishListId)" class="button2">REMOVE</button>
     <button mat-stroked-button color="primary" *ngIf="wishList && !value.isAddedToCart && !value.quantity" (click)="removeWishlist(value.wishListId)" class="wishlist">REMOVE</button>
 </div>

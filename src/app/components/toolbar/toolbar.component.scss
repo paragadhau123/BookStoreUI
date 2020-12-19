@@ -5,6 +5,15 @@
     min-width: 800px;
     overflow:auto;
 }
+@media only screen and (max-width: 370px) {
+    .toolbar{
+        background: #A03037;
+        padding: 0%;
+        min-width: 1000px;
+        min-height: 100px;
+        overflow:auto;  
+    }
+  }
 .title{
     color: #ffff;
     margin-left: 1%;
