@@ -72,6 +72,15 @@
     background: #3371B5;
     width: 100px;
 }
+@media only screen and (max-width: 370px) {
+  .ff{
+    font-size: 20px;
+    color: white;
+    background: #3371B5;
+    width: 200px;
+    height: 50px;
+}
+}
 .button2{
     font-size: 10px;
     color: black;
@@ -84,13 +93,19 @@
    
 }
 .cartBookDiv{
-
     width: 680px;
     height: 180px auto;
     border: 1px solid rgb(221, 221, 221);
     margin-top: 40px;
     padding-bottom: 16px;
-    margin-left: 180px;
+    margin-left:280px;
+    }
+
+    @media only screen and (max-width: 370px) {
+      .cartBookDiv{
+        height: 400px auto;
+        margin-left: 200px;
+        }
     }
     .cartNum{
         display: flex;
@@ -98,36 +113,38 @@
         padding-left: 55px;
        
       }
-      .fontSize{
-        font-size: large;
-        padding-top: 10px;
-      }
       .forClass{
         display: flex;
         flex-direction: row;
       }
+      .div{
+        display: flex; flex-direction: row; margin-top: 14px;
+    }
+    @media only screen and (max-width: 360px) {
+      .div{
+        display: flex; flex-direction: row; margin-top: 59px;
+    }
+    }
       .innerImage{
         display: flex;
         justify-content: center;
         margin-top: 10px;
-    margin-left: 54px;
-    background-color: white;
-    height: 80%;
-    width: 65px;
-    
-        
+        margin-left: 54px;
+        background-color: white;
+        height: 80%;
+        width: 65px;   
       }
-      .bookName1{
-        padding-top: 10px;
-        padding-left: 26px;
-      }
-      
-      .authorName1{
-        font-size: xx-small;
-          font: outline;
-          color: rgb(197, 197, 197);
-      }
-      
+      @media only screen and (max-width: 360px) {
+        .innerImage{
+           display: flex;
+           justify-content: center;
+           margin-top: 30px;
+           margin-left: 54px;
+           background-color: white;
+           height: 80%;
+           width: 180px;   
+        }
+      }      
       .minus{
         border-radius: 50%;
         border: none;
@@ -137,22 +154,7 @@
         outline: none;
         border: 1px solid rgb(228, 227, 227);
       }
-      
-.customerDetails{
-  
-
-    width: 570px;
-    height: 10px auto;
-    border: 1px solid rgb(221, 221, 221);
-    margin-top: 10px;
-    padding-bottom: 16px;
-    margin-left: 180px;
-    padding-top: 10px;
-    padding-left: 50px;
-   // margin-bottom: 70px;
-  
-  
-  }
+    
   .continueButtonDiv{
     // width: 100%;
      display: flex;
@@ -169,8 +171,6 @@
    }
   .name{
     width: 48%;
-     
-    
     }
       .plus{
         border-radius: 50%;
@@ -181,7 +181,17 @@
         outline: none;
         border: 1px solid rgb(228, 227, 227);
       }
-      
+      @media only screen and (max-width: 360px) {
+        .plus{
+          border-radius: 50%;
+          border: none;
+          height: 49px;
+          width: 49px;
+          margin-left: 4px;
+          outline: none;
+          border: 1px solid rgb(228, 227, 227);
+        }
+      }      
       .numInput{
         width: 20px;
         height: 15px;
@@ -196,7 +206,16 @@
         outline: none;
         background-color: white;
         }
-        
+        @media only screen and (max-width: 360px) {
+          .removeButton{
+            margin-left: 43px;
+            border: none;
+            outline: none;
+            background-color: white;
+            font-size:x-large;
+            }
+            
+        }  
         .orderButtonDiv{
           display: flex;
           justify-content: flex-end;
@@ -269,15 +288,7 @@
           outline: none;
         }
         
-        .cartBookDiv{
-        
-        width: 620px;
-        height: 180px auto;
-        border: 1px solid rgb(221, 221, 221);
-        margin-top: 40px;
-        padding-bottom: 16px;
-        margin-left: 280px;
-        }
+       
         
         .cartNum{
           display: flex;
@@ -290,7 +301,14 @@
           font-size: large;
           padding-top: 10px;
         }
-        
+        @media only screen and (max-width: 360px) {
+          .fontSize{
+            font-size:xx-large;
+            padding-top: 10px;
+          }
+        }
+       
+      
         .forClass{
           display: flex;
           flex-direction: row;
@@ -304,13 +322,28 @@
           padding-top: 10px;
           padding-left: 26px;
         }
-        
+        @media only screen and (max-width: 360px) {
+          .bookName1{
+            padding-top: 10px;
+            padding-left: 26px;
+            font-size: 34px;
+            margin-top: 50px;
+          }
+        }
         .authorName1{
           font-size: xx-small;
             font: outline;
             color: rgb(197, 197, 197);
         }
-        
+        @media only screen and (max-width: 360px) {
+          .authorName1{
+            font-size: 34px;
+              font: outline;
+              color: rgb(197, 197, 197);
+              margin-top: 15px;
+              margin-bottom: 15px;
+          }
+        }
         .minus{
           border-radius: 50%;
           border: none;
@@ -321,7 +354,18 @@
           background-color: rgb(250, 249, 249);
           border: 1px solid rgb(228, 227, 227);
         }
-        
+        @media only screen and (max-width: 360px) {
+          .minus{
+            border-radius: 50%;
+            border: none;
+            height: 49px;
+            width: 49px;
+            margin-right: 4px;
+            outline: none;
+            background-color: rgb(250, 249, 249);
+            border: 1px solid rgb(228, 227, 227);
+          }
+        }
         .plus{
           border-radius: 50%;
           border: none;
@@ -341,9 +385,18 @@
           text-align: center;
         
         }
-        
+        @media only screen and (max-width: 360px) {
+          .numInput{
+            width: 49px;
+            height: 49px;
+            margin-top: 1px;
+            border: 1px solid rgb(228, 227, 227);
+            text-align: center;
+          
+          }
+        }
         .customerDetails{
-          width: 570px;
+          width: 630px;
           height: 10px auto;
           border: 1px solid rgb(221, 221, 221);
           margin-top: 10px;
@@ -354,8 +407,8 @@
         }
         @media only screen and (max-width: 360px) {
           .customerDetails{
-            min-width: 150px;
-            height: 10px auto;
+            width: 630px;
+            min-height: 40px auto;
             border: 1px solid rgb(221, 221, 221);
             margin-top: 10px;
             padding-bottom: 16px;
@@ -377,12 +430,12 @@
         
         
         
-        .removeButton{
-        margin-left: 13px;
-        border: none;
-        outline: none;
-        background-color: white;
-        }
+        // .removeButton{
+        // margin-left: 13px;
+        // border: none;
+        // outline: none;
+        // background-color: white;
+        // }
         
         .orderButtonDiv{
           display: flex;

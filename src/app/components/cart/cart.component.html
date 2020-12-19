@@ -15,7 +15,7 @@
             <div class="price1">
                 Rs. {{book.price}}
             </div>
-            <div style="display: flex; flex-direction: row; margin-top: 28px;">
+            <div class="div">
                 <button type="submit" class="minus" (click)="decreaseQuantity(book)">-</button>
                 <input type="text" class="numInput" value="{{book.orderQuantity}}" id="number">
                 <button type="submit" class="plus" (click)="increaseQuantity(book)">+</button>
