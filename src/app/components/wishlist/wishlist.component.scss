@@ -19,4 +19,14 @@
  }
  
 }
-
+@media only screen and (max-width: 370px) {
+  .title{
+    margin-left: 50px;
+    font-size: 40px;
+ }
+}
+@media only screen and (max-width: 370px) {
+  .count{
+      font-size: 40px;   
+ }
+}
