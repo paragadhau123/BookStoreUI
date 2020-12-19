@@ -1,4 +1,8 @@
-
+::ng-deep{
+  .ngx-pagination .current{
+     background: #A03037 !important
+ }
+}
 .books{
     flex-direction: row;
     box-sizing: border-box;
@@ -559,9 +563,5 @@
           bottom: 100%;
          // left: 100%;
         }
-        ::ng-deep{
-          .ngx-pagination .current{
-             background:#A03037;  
-         }
-        }
+       
       
