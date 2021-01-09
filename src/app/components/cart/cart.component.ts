@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   orderSummary = true;
   cartBookArray = [];
   length;
-  
+
   ngOnInit(): void {
     this.getCartData();
     this.data.currentMessage.subscribe(data => { this.getCartData() })
@@ -65,14 +65,18 @@ export class CartComponent implements OnInit {
     });
   }
 
-  removeBookFromCart(book){
-    this.data.decreaseCartLength({data2:book});
-    this.user.deleteCart(book).subscribe( async (data) => {
-      this.data.changeMessage({});
+  removeBookFromCart(book) {
+    this.data.decreaseCartLength({ data2: book });
+    this.user.deleteCart(book).subscribe(async (data) => {
+      this.data.decreaseCartLength({})
+
       await this.resolveAfter2Seconds(1);
+    
       this.data.changeMessage({});
+
     });
   }
+
   resolveAfter2Seconds(x) {
     return new Promise(resolve => {
       setTimeout(() => {

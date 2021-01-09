@@ -4,8 +4,8 @@
     currentPage: page,
     totalItems: count } ;let i = index" (mouseover)="showDiscription[i]=true" (mouseout)="showDiscription[i]=false ">    
 <div class="book-photo">
-    <div class="image">
-        <img class="book-image" src={{value.image}} alt="">
+    <div class="image"  >
+        <img class="book-image" src={{value.image}} alt="" (click)="navigateReviews(value.bookId)">
     </div>
 </div>
 <div class="book-info" >

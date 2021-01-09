@@ -405,6 +405,7 @@
           padding-top: 10px;
           padding-left: 50px;
         }
+
         @media only screen and (max-width: 360px) {
           .customerDetails{
             width: 630px;
@@ -415,8 +416,10 @@
             margin-left: 200px;
             padding-top: 10px;
             padding-left: 50px;
+            border: none;
           }
         }
+
         orderDetails{
             width: 570px;
             height: 10px auto;
@@ -490,6 +493,11 @@
         
         .name1{
           width: 32%;
+        }
+        @media only screen and (max-width: 600px) {
+.nameContainer{
+  width: 100%;
+}
         }
         
       

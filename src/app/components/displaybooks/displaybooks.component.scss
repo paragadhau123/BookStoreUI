@@ -554,14 +554,16 @@
         }
 
         .discriptionCart{
-          // display: flex;
-          // flex-wrap: wrap;
+           display: flex;
+           flex-wrap: wrap;
           //height: 200px;
           position:relative;
           // right:  -100%;
           // left: -100%;
-          bottom: 100%;
-         // left: 100%;
+          bottom: 105%;
+          left: 100%;
+          width: 205px;
+          z-index: 1;
         }
        
       

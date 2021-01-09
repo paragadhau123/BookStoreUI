@@ -39,6 +39,7 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchPipe } from './pipes/search.pipe';
+import { ReviewComponent } from './components/review/review.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,8 @@ import { SearchPipe } from './pipes/search.pipe';
     OrdersuccessComponent,
     WishlistComponent,
     UserdashboardComponent,
-    SearchPipe, 
+    SearchPipe,
+    ReviewComponent, 
   ],
   imports: [
     BrowserModule,

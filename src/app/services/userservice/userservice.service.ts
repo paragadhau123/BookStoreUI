@@ -104,4 +104,19 @@ export class UserserviceService {
     console.log("get service");
     return this.searchBookData.asObservable();
   }
+
+  getBookReview(data){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.http.get(`${this.baseUrl}Review/${data}`,true,options)
+  }
+  
+  addBookReview(bookId,data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.http.post(`${this.baseUrl}Review/${bookId}`,data, true,options)
+  }
+
+  getBooksById(data){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.http.get(`${this.baseUrl}Books/DisplayBookById/${data}`,true,options)
+  }
 }

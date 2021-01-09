@@ -19,6 +19,7 @@ export class DisplaybooksComponent implements OnInit {
   @Input() wishList;
   @Input() bookArrayLength;
   @Input() bookArray: any;
+  @Input() reviews: boolean;
   tutorials: any;
   currentTutorial = null;
   currentIndex = -1;
@@ -31,6 +32,7 @@ export class DisplaybooksComponent implements OnInit {
   public show: boolean = false;
   bookSearch: any;
   cartCondition: any = [];
+  reviewBookArray: any = [];
   constructor(private user: UserserviceService, private data: DataserviceService, public route: Router) { }
 
   ngOnInit(): void {
@@ -59,8 +61,9 @@ export class DisplaybooksComponent implements OnInit {
   
   addToCart(data) {
     this.user.addCart(data).subscribe((data) => {
-      this.data.changeMessage({});
       this.data.changeCartLength({ data1: data });
+      this.data.changeCartLength({})
+      this.data.changeMessage({});
     });
   }
 
@@ -76,4 +79,8 @@ export class DisplaybooksComponent implements OnInit {
     });
   }
 
+ 
+  navigateReviews(data) {
+    this.route.navigate(['dashboard/reviews/'+ data]);
+}
 }

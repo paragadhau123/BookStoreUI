@@ -33,7 +33,7 @@
 </div>
 <div class="customerDetails" *ngIf="!reset">
     Customer Details
-    <div class="nameContainer">
+    <div class="nameContainer" fxLayout.xs="column" fxLayoutAlign.xs="space-between center" >
         <mat-form-field appearance="outline" class="name">
             <mat-label>Name</mat-label>
             <input matInput placeholder=" Name" id="name" value="{{name}}" required>
@@ -44,7 +44,7 @@
             <input matInput placeholder="Phone" id="Phone" value="{{phone}}" required>
         </mat-form-field>
     </div>
-    <div class="nameContainer">
+    <div class="nameContainer" fxLayout.xs="column" fxLayoutAlign.xs="space-between center">
         <mat-form-field appearance="outline" class="name1">
             <mat-label>State</mat-label>
             <input matInput placeholder="eg: State" value="{{state}}" required>

@@ -13,6 +13,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AuthguardGuard } from "../app/authguard/authguard.guard";
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
+import { ReviewComponent } from './components/review/review.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -43,6 +44,10 @@ const routes: Routes = [
     {
       path:"orderSuccess",
       component:OrdersuccessComponent
+    },
+    {
+      path: 'reviews/:id',
+      component:ReviewComponent
     }
   ]}
 ];
